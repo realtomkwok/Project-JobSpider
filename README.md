@@ -1,4 +1,4 @@
-# Project-JobSpider
+# Project JobSpider
 A Python-based tool for job seeking and planning.
 ## Data Crawling
 
