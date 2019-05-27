@@ -5,17 +5,17 @@ A Python-based tool for job seeking and planning.
 ### Members
 
 ### Useful Links
-🉑 [Crossin 招聘报告源码](https://github.com/zx576/recruitment)
+* 🉑 [Crossin 招聘报告源码](https://github.com/zx576/recruitment)
 
 ## Data Visualization
 
 ### Members
 
 ### Useful Links
-🉑 [ECharts](https://echarts.baidu.com/index.html)
+* 🉑 [ECharts](https://echarts.baidu.com/index.html)
 
-[Vue-ECharts](https://github.com/ecomfe/vue-echarts) | [🇨🇳中文版](https://github.com/ecomfe/vue-echarts/blob/master/README.zh_CN.md)
+  * [Vue-ECharts](https://github.com/ecomfe/vue-echarts) | [🇨🇳中文版](https://github.com/ecomfe/vue-echarts/blob/master/README.zh_CN.md)
 
-[Bokeh](https://github.com/bokeh/bokeh)
+* [Bokeh](https://github.com/bokeh/bokeh)
 
-[Chart.js](https://www.chartjs.org/docs/latest/)
+* [Chart.js](https://www.chartjs.org/docs/latest/)
