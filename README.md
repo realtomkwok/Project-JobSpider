@@ -1,13 +1,13 @@
 # Project JobSpider
 A Python-based tool for job seeking and planning.
-## Data Crawling
+## Team DC(Data Crawling)
 
 ### Members
 
 ### Useful Links
 * 🉑 [Crossin 招聘报告源码](https://github.com/zx576/recruitment)
 
-## Data Visualization
+## Team DV(Data Visualization)
 
 ### Members
 
