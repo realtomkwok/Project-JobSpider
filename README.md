@@ -5,6 +5,7 @@ A Python-based tool for job seeking and planning.
 ### Members
 
 ### Useful Links
+🉑[Crossin 招聘报告源码](https://github.com/zx576/recruitment)
 
 ## Data Visualization
 
