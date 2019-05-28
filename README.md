@@ -1,5 +1,7 @@
 # Project JobSpider
 A Python-based tool for job seeking and planning.
+根据指定 tags 生成报告
+
 ## Team DC(Data Crawling)
 
 ### Members
