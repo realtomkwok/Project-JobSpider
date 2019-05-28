@@ -11,7 +11,7 @@ A Python-based tool for job seeking and planning.
 
 ### Members
 ZQF
-
+LZX
 ### Useful Links
 * 🉑 [ECharts](https://echarts.baidu.com/index.html)
   * [Vue-ECharts](https://github.com/ecomfe/vue-echarts) | [🇨🇳中文版](https://github.com/ecomfe/vue-echarts/blob/master/README.zh_CN.md)
