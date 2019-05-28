@@ -18,7 +18,7 @@ LZX
 ZLQ
 ### Useful Links
 * 🉑 [GitHub - The State of the Octoverse](https://octoverse.github.com/): a great showcase of GitHub Year Report
-* 🉑 [ECharts](https://echarts.baidu.com/index.html): A powerful, interactive charting and visualization library for browser. Developed by Baidu
+* 🉑 [ECharts](https://echarts.baidu.com/index.html): A powerful, interactive charting and visualization library for browser. Developed by Baidu.
   * [Vue-ECharts](https://github.com/ecomfe/vue-echarts) | [🇨🇳中文版](https://github.com/ecomfe/vue-echarts/blob/master/README.zh_CN.md): 
 
 * [Bokeh](https://github.com/bokeh/bokeh)
