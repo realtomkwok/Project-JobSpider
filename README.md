@@ -10,6 +10,7 @@ A Python-based tool for job seeking and planning.
 ## Team DV(Data Visualization)
 
 ### Members
+ZQF
 
 ### Useful Links
 * 🉑 [ECharts](https://echarts.baidu.com/index.html)
