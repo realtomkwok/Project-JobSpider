@@ -8,6 +8,7 @@ A Python-based tool for job seeking and planning.
 MJX
 ### Useful Links
 * 🉑 [Crossin 招聘报告源码](https://github.com/zx576/recruitment)
+* [Pandas Tutorial](https://github.com/adeshpande3/Pandas-Tutorial/blob/master/Pandas%20Tutorial.ipynb)
 
 ## Team DV(Data Visualization)
 
