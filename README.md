@@ -9,6 +9,7 @@ MJX
 ### Useful Links
 * 🉑 [Crossin 招聘报告源码](https://github.com/zx576/recruitment)
 * [Pandas Tutorial](https://github.com/adeshpande3/Pandas-Tutorial/blob/master/Pandas%20Tutorial.ipynb)
+* [Beautiful Soup 爬取智联招聘](https://blog.csdn.net/lilu916/article/details/76104568)
 
 ## Team DV(Data Visualization)
 
