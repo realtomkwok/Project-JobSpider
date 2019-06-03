@@ -17,7 +17,7 @@ def get_json(url,page):
     url_parse = "https://www.lagou.com/jobs/positionAjax.json?city=深圳&needAddtionalResult=false"
     headers = {
         'Accept': 'application/json, text/javascript, */*; q=0.01',
-        'Referer': 'https://www.lagou.com/jobs/{positionID}.html',
+        'Referer': 'https://www.lagou.com/jobs/list_%E8%BF%90%E7%BB%B4?city=%E6%88%90%E9%83%BD&cl=false&fromSearch=true&labelWords=&suginput=',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
     }
     #for x in range(1, 30):
@@ -65,11 +65,11 @@ def main():
       table = excel.get_sheet(0) # 获取要操作的sheet
       #对excel表追加一行内容
       workbook = xlwt.Workbook(encoding="utf-8")  
-      table = workbook.add_sheet('Sheet1', cell_overwrite_ok=True)
+      table = workbook.add_sheet('JavaScript', cell_overwrite_ok=True)
       for i, row in enumerate(info_result):                           
           for j, col in enumerate(row):                
              table.write(i, j, col)
-      workbook.save('swift.xls')   
+      workbook.save('swiftSZ.xls')   
 
 if __name__ == '__main__':
 	main()
