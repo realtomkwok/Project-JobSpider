@@ -47,11 +47,14 @@ class Spider:
     depth_first = False
     start_urls = []
 
+
     def __init__(self):
         self.to_crawl = LifoQueue() if self.depth_first else Queue()
         self.crawled = set()
 
-    def start(self, callback=None):
+    def start(self,  url, filename, result, callback=None,):
+        self.start_urls.append(url)
+        print(self.start_urls)
         self.on_start()
         if not self.start_urls:
             logger.error("Empty start_urls!")
@@ -61,7 +64,7 @@ class Spider:
             self.crawl(url, callback=callback)
         start_time = time.time()
         self._do_crawl()
-        self.on_end()
+        self.on_end(filename, result)
         logger.debug("Time taken: %s", time.time() - start_time)
 
     def get_response(self, url, proxies=None):
@@ -135,7 +138,7 @@ class Spider:
         """called before crawling starts"""
         pass
 
-    def on_end(self):
+    def on_end(self, result, filename):
         """called after crawling ends"""
         pass
 
@@ -145,7 +148,7 @@ class Spider:
 
 
 class MultiThreadedSpider(Spider):
-    max_workers = 10
+    max_workers = 50
 
     def __init__(self):
         self.executor = futures.ThreadPoolExecutor(
