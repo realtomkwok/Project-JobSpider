@@ -1,6 +1,7 @@
 """
 A simple spider library
 @author: Hengbin Yan
+#张芹妃有改动
 """
 
 import requests
