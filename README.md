@@ -21,7 +21,8 @@ A Python-based tool for job seeking and planning.
 ### Useful Links
 * 🉑 [GitHub - The State of the Octoverse](https://octoverse.github.com/): a great showcase of GitHub Year Report
 * 🉑 [ECharts](https://echarts.baidu.com/index.html): A powerful, interactive charting and visualization library for browser. Developed by Baidu.
-  * [Vue-ECharts](https://github.com/ecomfe/vue-echarts) | [🇨🇳中文版](https://github.com/ecomfe/vue-echarts/blob/master/README.zh_CN.md): 
+  * [Vue-ECharts](https://github.com/ecomfe/vue-echarts) | [🇨🇳中文版](https://github.com/ecomfe/vue-echarts/blob/master/README.zh_CN.md)
+  * [PyEcharts](https://github.com/pyecharts/pyecharts)
 
 * [Bokeh](https://github.com/bokeh/bokeh)
 	* [Bokeh教程学习](https://www.kesci.com/home/project/59dd8cbd77da7a4f41ce3299)
