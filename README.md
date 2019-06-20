@@ -27,3 +27,5 @@ A Python-based tool for job seeking and planning.
 	* [Bokeh教程学习](https://www.kesci.com/home/project/59dd8cbd77da7a4f41ce3299)
 
 * [Chart.js](https://www.chartjs.org/docs/latest/)
+* [Python大数据：jieba分词，词频统计](https://www.jianshu.com/p/f516292d8b9c)
+* [结巴分词](https://github.com/fxsjy/jieba)
