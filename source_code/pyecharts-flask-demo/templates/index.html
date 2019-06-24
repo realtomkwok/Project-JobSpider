@@ -104,8 +104,9 @@
         function test(lang){
             var chart = echarts.init(document.getElementById('bar'), 'white', { renderer: 'canvas' });
                 $.ajax({
-                    type: "GET",
+                    type: "POST",
                     url: "http://127.0.0.1:5000/barChart",
+                    data:"lang="+encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
                     dataType: 'json',
                     success: function (result) {
                         chart.setOption(result);
