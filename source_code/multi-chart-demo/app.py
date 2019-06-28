@@ -1,18 +1,4 @@
- 
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Jun 26 14:46:54 2019
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jun 23 20:07:13 2019
-
-@author: Administrator
-"""
-
 from random import randrange
 
 from flask import Flask, render_template,url_for, request, json,jsonify
@@ -204,6 +190,28 @@ def ZQF3():
     bar.render_notebook()
     return bar
 
+###################################################################################################
+
+def LSQ1(lang) -> Bar:
+    language = "data/ZQF/"+lang+".xlsx"
+    df = pd.read_excel(language)
+    data = df.groupby(['city', 'experience']).avgWage.mean().round(2).reset_index(name='salary')
+
+    shanghai = list(data.iloc[0:4].salary)
+    beijing = list(data.iloc[4:8].salary)
+    guangzhou = list(data.iloc[8:12].salary)
+    shenzhen = list(data.iloc[12:16].salary)
+
+    bar = (
+        Bar()
+        .add_xaxis(['1-5年', '10年以上', '5-10年', '不限'])
+        .add_yaxis('上海', shanghai)
+        .add_yaxis('北京', beijing)
+        .add_yaxis('广州', guangzhou)
+        .add_yaxis('深圳', shenzhen)
+        .set_global_opts(title_opts={"text": lang, "subtext": "工资与经验关系图"})
+    )
+    return bar
 
 @app.route("/")
 def index():
@@ -226,6 +234,14 @@ def get_ZQF2():
 @app.route("/ZQF3",methods=[ 'POST'])
 def get_ZQF3():
     c = ZQF3()
+    return c.dump_options()
+
+@app.route("/LSQ1", methods=[ 'POST'])
+def get_LSQ1():    
+    if request.method == "POST":
+        lang = request.form.get('lang', '')
+    print(lang)
+    c = LSQ1(lang)
     return c.dump_options()
 
 

@@ -126,6 +126,7 @@
             </ol>
         </h3>
     </div>
+    <div id="LSQ1" style="width:1000px; height:600px;margin: 5%"></div>
 
     <script>
 
@@ -135,6 +136,7 @@
                 nodeList[j].addEventListener("click", function (e) {
                     console.log(e.target.innerText)
                     ZQF1(e.target.innerText)
+                    LSQ1(e.target.innerText)
                 }, false);
             })(i);
         }
@@ -174,10 +176,23 @@
                 }
             });
         };
+        function LSQ1(lang) {
+            var chart = echarts.init(document.getElementById('LSQ1'), 'white', { renderer: 'canvas' });
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/LSQ1",
+                data: "lang=" + encodeURIComponent(lang),
+                dataType: 'json',
+                success: function (result) {
+                    chart.setOption(result);
+                }
+            });
+        };
         function load() {
             ZQF1("C#")
             ZQF2()
             ZQF3()
+            LSQ1("C#")
         }
     </script>
 </body>
