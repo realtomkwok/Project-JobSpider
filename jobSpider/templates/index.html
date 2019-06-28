@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>jobSpider 职业报告</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <style>
+        body {
+            background-color: #282B35;
+        }
         @font-face {
         font-family: "IBM Plex Mono";
         src: url("/fonts/IBMPlexMono-Regular.ttf");
@@ -50,21 +53,21 @@
                     <p>本报告所有数据来自上述招聘网站的公开数据，与真实的市场需求有可能存在偏差，结论仅供参考。</p>
                 </div>
                 <!-- <div id="buttons">
-                    <a href="{{ url_for('report1') }}" class="button">
+                    <a href="#" class="button">
                         <span class="button_text">向下了解更多</span>
                     </a>
                 </div> -->
-            </div>
+        </div>
             <section id="parts" class="section">
                 <h2 class="font-type-blue">print<span class="font-white">(</span>parts<span class="font-white">)</span></h2>
                 <p class="subtitle font-type-blue">报告分类<p>
                 <div class="scrolling-wrapper">
                     <a class="inline-card card-small" href="{{ url_for('salary') }}">
                         <img src="/icons/money.svg" width="50" height="50" alt="工资相关" class="icon">
-                        <h3 class="font-orange" style="margin-block-start: 0.2em;">工资相关</h3>
+                        <h3 class="font-orange" style="margin-block-start: 0.2em;">薪资相关</h3>
                         <p class="text"></p>
                     </a>
-                    <a class="inline-card card-small" href="{{ url_for('districts') }}">
+                    <a class="inline-card card-small" href="{{ url_for('district') }}">
                         <img src="/icons/place.svg" width="50" height="50" alt="地域相关" class="icon">
                         <h3 class="font-orange" style="margin-block-start: 0.2em;">地域相关</h3>
                         <p class="text"></p>
@@ -80,7 +83,7 @@
                             <p class="text"></p>
                     </a>
                     <a class="inline-card card-small" href="{{ url_for('diploma') }}">
-                        <img src="/icons/star.svg" width="50" height="50" alt="学历相关" class="icon">
+                        <img src="/icons/school.svg" width="50" height="50" alt="学历相关" class="icon">
                         <h3 class="font-orange" style="margin-block-start: 0.2em;">学历相关</h3>
                         <p class="text"></p>
                     </a>

@@ -5,6 +5,9 @@
 .font-white {
     color: white;
 }
+.font-black {
+    color: black;
+}
 .font-orange {
     color: #FF8932;
 }
@@ -29,6 +32,12 @@ h3 {
     font-weight: 700;
     font-size: 1.5rem;
 }
+.chap_title {
+    margin-block-start: 0.1em;
+}
+.chap_overtext {
+    margin-block-end: 0.1em
+}
 .subtitle {
     font-weight: 500;
     font-size: 1.8rem;
@@ -47,19 +56,48 @@ h3 {
     text-transform: uppercase;
 }
 
+
 /* components */
+.tags {
+    list-style: none;
+    margin: 0;
+    overflow: scroll;
+    padding: 0;
+}
+.tags li {
+    float: left;
+}
+
 .button {
     display: inline-block;
     /* transition: 308ms background cubic-bezier(0.4, 0, 0.6, 1),300ms color cubic-bezier(0.4, 0, 0.6, 1); */
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 30px;
     background-color: transparent;
     padding: 0 23px;
-    font-size: 20px;
-    color: white !important;
-    line-height: 48px;
+    color: black !important;
+    line-height: 36px;
     text-align: center;
-    margin: 2rem 1rem 0 0;
+    margin: 0 1rem 2rem 0;
+    min-width: 50px;
+    font-size: 14px;
+    font-weight: 600
+}
+.button:hover {
+    background-color: black;
+    color: white !important;
+}
+.button:hover::after {
+    background-color: black;
+    color: white !important;
+}
+.button::before {
+    background-color: white;
+    color: black;
+}
+.button::after {
+    background-color: black;
+    color: white !important;
 }
 
 .navbar {
@@ -113,10 +151,14 @@ a:-webkit-any-link {
 .inline-card .icon {
     fill: #FF8932
 }
+.next_chapter {
+    background-color: #282B35;
+    padding: 3em 5em;
+}
 
 /* Index */
 body {
-    background-color: #282B35;
+    background-color: white;
     font-family: 'IBM Plex Mono', 'Source Sans', 'sans-serif';
     color: white;
 }
@@ -128,7 +170,11 @@ body {
 .hero {
     display: block;
     margin-top: 8rem;
-    max-width: 700px;
+    max-width: 800px;
+}
+
+.hero .text {
+        max-width: 700px;
 }
 
 .section {
@@ -143,4 +189,17 @@ footer {
     padding: 1rem;
     background: rgba(0,0,0,0.11);
     text-align: center;
+}
+
+/* sub pages */
+.figure {
+    margin-top: 1.2em;
+}
+.chart {
+    width: 100%; 
+    height: 600px
+}
+.caption {
+    margin: 1em 0 0 1.5em;
+    width: 100%;
 }

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from random import randrange
-
+import os
 from flask import Flask, render_template,url_for, request, json,jsonify
 from pyecharts import options as opts
 from pyecharts.charts import Bar, Line, Grid, Funnel, WordCloud
@@ -444,7 +444,7 @@ def skills():
     return render_template("skills.html")
 
 @app.route("/diploma")
-def skills():
+def diploma():
     return render_template("diploma.html")
 
 @app.route("/ZQF1",methods=[ 'POST'])
