@@ -11,7 +11,6 @@ app = Flask(__name__, static_url_path='')
 
 app.config['JSON_AS_ASCII'] = False
 
-
 def ZQF1(lang) -> Grid:
     print("第一个表格开始处理")
     language = "data/ZQF/"+lang+".xlsx"
@@ -72,10 +71,17 @@ def ZQF1(lang) -> Grid:
         )
         .set_global_opts(
             
-            title_opts=opts.TitleOpts(title=lang + "行业工资关系图"),
+            title_opts=opts.TitleOpts(title=lang + "各行业岗位数量及平均工资关系图"),
             tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
-            toolbox_opts = opts.ToolboxOpts(is_show=True)
-            
+            toolbox_opts = opts.ToolboxOpts(is_show=True)            
+        )
+         .set_series_opts(
+            label_opts=opts.LabelOpts(is_show=False),
+            markpoint_opts=opts.MarkPointOpts(
+                data=[
+                    opts.MarkPointItem(type_="average", name="平均值"),       
+                ]
+            ),
         )
     )
 
@@ -88,6 +94,14 @@ def ZQF1(lang) -> Grid:
             yaxis_index=2,
             color="#675bba",
             label_opts=opts.LabelOpts(is_show=False),
+        )
+      .set_series_opts(
+            label_opts=opts.LabelOpts(is_show=False),
+            markline_opts=opts.MarkLineOpts(
+                data=[
+                    opts.MarkLineItem(type_="average", name="平均值"),
+                ]
+            ),
         )
     )
 
@@ -114,7 +128,6 @@ for each_table in ['data/ZQF/C#.xlsx','data/ZQF/C++.xlsx','data/ZQF/HTML+CSS.xls
         ZQF2_city_salary_dict[ZQF2_cities[i]].append(ZQF2_cities_avg_wage[i])
 
 ###################################################################
-
 def ZQF2() -> Timeline:
     print("第二个表格开始处理")    
     tl = Timeline()
@@ -139,7 +152,7 @@ def ZQF2() -> Timeline:
                 ),
             )
         )
-            .set_global_opts(title_opts=opts.TitleOpts("{}各语言平均工资".format(i)),
+            .set_global_opts(title_opts=opts.TitleOpts("{}各编程语言与平均工资关系图".format(i)),
                               toolbox_opts=opts.ToolboxOpts(),
             )
             .set_series_opts(
@@ -147,6 +160,7 @@ def ZQF2() -> Timeline:
             markpoint_opts=opts.MarkPointOpts(
                 data=[
                     opts.MarkPointItem(type_="max", name="最大值"),
+                      opts.MarkPointItem(type_="average", name="平均值"),
                     opts.MarkPointItem(type_="min", name="最小值"),
        
                 ]
@@ -206,12 +220,29 @@ def ZQF3(city) -> Bar:
         Bar()
         .add_xaxis(city_district_dic[city])
         .add_yaxis('平均工资',city_wage_dict[city])
-        .set_global_opts(title_opts=opts.TitleOpts(title= city+"各区各编程语言工资", subtitle=""), toolbox_opts=opts.ToolboxOpts(),)
+        .extend_axis(
+            yaxis=opts.AxisOpts(
+                type_="value",
+                name="平均工资（千/月）",
+                min_=0,
+                max_=30,
+                position="left",
+                axisline_opts=opts.AxisLineOpts(
+                    linestyle_opts=opts.LineStyleOpts(color="#675bba")
+                ),
+                axislabel_opts=opts.LabelOpts(formatter="{value} "),
+                splitline_opts=opts.SplitLineOpts(
+                    is_show=True, linestyle_opts=opts.LineStyleOpts(opacity=1)
+                ),
+            )
+        )
+        .set_global_opts(title_opts=opts.TitleOpts(title= city+"各区编程语言相关工作与平均工资关系图", subtitle=""), toolbox_opts=opts.ToolboxOpts(),)
         .set_series_opts(
             label_opts=opts.LabelOpts(is_show=False),
             markline_opts=opts.MarkLineOpts(
                 data=[
                     opts.MarkLineItem(type_="min", name="最小值"),
+                     opts.MarkLineItem(type_="average", name="平均值"),
                     opts.MarkLineItem(type_="max", name="最大值"),
                 ]
             ),
