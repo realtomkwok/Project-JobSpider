@@ -404,9 +404,17 @@ def salary():
 def district():
     return render_template("district.html")
 
-@app.route("/district")
-def district():
-    return render_template("district.html")
+@app.route("/industry")
+def industry():
+    return render_template("industry.html")
+
+@app.route("/skills")
+def skills():
+    return render_template("skills.html")
+
+@app.route("/diploma")
+def skills():
+    return render_template("diploma.html")
 
 @app.route("/ZQF1",methods=[ 'POST'])
 def get_ZQF1():
