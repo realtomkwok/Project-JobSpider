@@ -1,0 +1,162 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+    <style>
+        body {
+            font: 12px/1.5 'PT Sans', serif;
+            margin: 25px;
+            padding: 5%
+        }
+
+        .tags {
+            list-style: none;
+            margin: 0;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .tags li {
+            float: left;
+        }
+
+        .tag {
+            background: #eee;
+            border-radius: 3px 0 0 3px;
+            color: #999;
+            display: inline-block;
+            height: 26px;
+            line-height: 26px;
+            padding: 0 20px 0 23px;
+            position: relative;
+            margin: 0 10px 10px 0;
+            text-decoration: none;
+            -webkit-transition: color 0.2s;
+        }
+
+        .tag::before {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+            content: '';
+            height: 6px;
+            left: 10px;
+            position: absolute;
+            width: 6px;
+            top: 10px;
+        }
+
+        .tag::after {
+            background: #fff;
+            border-bottom: 13px solid transparent;
+            border-left: 10px solid #eee;
+            border-top: 13px solid transparent;
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .tag:hover {
+            background-color: crimson;
+            color: white;
+        }
+
+        .tag:hover::after {
+            border-left-color: crimson;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <!--onload事件-->
+    <div>
+        <h2>热门编程相关技能</h2>
+        <div id="mjx" style="width:1000px; height:600px;"></div>
+    </div>
+
+    <script>
+        var oTab1 = document.getElementById("tag1");
+        var nodeList1 = oTab1.children;
+        for (var i = 0; i < nodeList1.length; i++) {
+            (function (j) {
+                nodeList1[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                    mjx(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
+        var oTab2 = document.getElementById("tag2");
+        var nodeList2 = oTab2.children;
+        for (var i = 0; i < nodeList2.length; i++) {
+            (function (j) {
+                nodeList2[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
+        var oTab3 = document.getElementById("tag3");
+        var nodeList3 = oTab3.children;
+        for (var i = 0; i < nodeList3.length; i++) {
+            (function (j) {
+                nodeList3[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
+        var oTab4 = document.getElementById("tag4");
+        var nodeList4 = oTab4.children;
+        for (var i = 0; i < nodeList4.length; i++) {
+            (function (j) {
+                nodeList4[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
+        var oTab5 = document.getElementById("tag5");
+        var nodeList5 = oTab5.children;
+        for (var i = 0; i < nodeList5.length; i++) {
+            (function (j) {
+                nodeList5[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
+        var oTab6 = document.getElementById("tag6");
+        var nodeList6 = oTab6.children;
+        for (var i = 0; i < nodeList6.length; i++) {
+            (function (j) {
+                nodeList6[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                }, false);
+            })(i);
+        }
+ 
+        function mjx(lang) {
+            var mjx = echarts.init(document.getElementById('mjx'), 'white', { renderer: 'canvas' });
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/mjxChart",
+                data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+                dataType: 'json',
+                success: function (result) {
+                    mjx.setOption(result);
+                }
+            });
+        }
+
+        function load() {
+            mjx("C#")//相关技能
+        }
+    </script>
+</body>
+
+</html>
