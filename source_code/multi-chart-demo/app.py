@@ -197,10 +197,10 @@ def LSQ1(lang) -> Bar:
     df = pd.read_excel(language)
     data = df.groupby(['city', 'experience']).avgWage.mean().round(2).reset_index(name='salary')
 
-    shanghai = list(data.iloc[0:4].salary)
-    beijing = list(data.iloc[4:8].salary)
-    guangzhou = list(data.iloc[8:12].salary)
-    shenzhen = list(data.iloc[12:16].salary)
+    shanghai = list(data.query("city=='上海'").salary)
+    beijing = list(data.query("city=='北京'").salary)
+    guangzhou = list(data.query("city=='广州'").salary)
+    shenzhen = list(data.query("city=='深圳'").salary)
 
     bar = (
         Bar()
@@ -217,6 +217,9 @@ def LSQ1(lang) -> Bar:
 def index():
     return render_template("index.html")
 
+@app.route("/test")
+def test():
+    return render_template("test.html")
 
 @app.route("/ZQF1",methods=[ 'POST'])
 def get_ZQF1():
