@@ -15,33 +15,6 @@
     background-color: white;
 }
 
-/* font */
-@font-face {
-    font-family: "IBM Plex Mono";
-    src: url("/font/IBMPlexMono-Regular.ttf");
-    font-weight: 500    
-}
-@font-face {
-    font-family: "IBM Plex Mono";
-    src: url("/font/IBMPlexMono-Bold.ttf");
-    font-weight: 700;
-}
-@font-face {
-    font-family: "IBM Plex Mono";
-    src: url("/font/IBMPlexSans-Text.ttf");
-    font-weight: 300
-}
-@font-face {
-    font-family: "Source Sans";
-    src: url("/font/SourceSansPro-Regular.ttf");
-    font-weight: 400;
-}
-@font-face {
-    font-family: "Source Sans";
-    src: url("/font/SourceSansPro-SemiBold.ttf");
-    font-weight: 600;
-}
-
 /* paragraph */
 h1 {
     font-weight: 700;
@@ -73,7 +46,6 @@ h3 {
     text-decoration: none !important;
     text-transform: uppercase;
 }
-
 
 /* components */
 .button {
@@ -141,7 +113,6 @@ a:-webkit-any-link {
 .inline-card .icon {
     fill: #FF8932
 }
-
 
 /* Index */
 body {

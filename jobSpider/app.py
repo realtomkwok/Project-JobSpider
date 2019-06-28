@@ -396,13 +396,17 @@ def LZX1(lang) -> Bar:
 def index():
     return render_template("index.html")
 
-@app.route("/report1")
-def report1():
-    return render_template("report1.html")
+@app.route("/salary")
+def salary():
+    return render_template("salary.html")
 
-@app.route("/report2")
-def report2():
-    return render_template("report2.html")
+@app.route("/district")
+def district():
+    return render_template("district.html")
+
+@app.route("/district")
+def district():
+    return render_template("district.html")
 
 @app.route("/ZQF1",methods=[ 'POST'])
 def get_ZQF1():

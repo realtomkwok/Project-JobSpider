@@ -5,8 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>jobSpider 职业报告</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        @font-face {
+        font-family: "IBM Plex Mono";
+        src: url("/fonts/IBMPlexMono-Regular.ttf");
+        font-weight: 500    
+        }
+        @font-face {
+            font-family: "IBM Plex Mono";
+            src: url("/fonts/IBMPlexMono-Bold.ttf");
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: "IBM Plex Mono";
+            src: url("/fonts/IBMPlexSans-Text.ttf");
+            font-weight: 300
+        }
+        @font-face {
+            font-family: "Source Sans";
+            src: url("/fonts/SourceSansPro-Regular.ttf");
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: "Source Sans";
+            src: url("/fonts/SourceSansPro-SemiBold.ttf");
+            font-weight: 600;
+        }
+    </style>
 
 </head>
 <body>
@@ -33,26 +59,31 @@
                 <h2 class="font-type-blue">print<span class="font-white">(</span>parts<span class="font-white">)</span></h2>
                 <p class="subtitle font-type-blue">报告分类<p>
                 <div class="scrolling-wrapper">
-                    <a class="inline-card card-small" href="{{ url_for('report1') }}">
+                    <a class="inline-card card-small" href="{{ url_for('salary') }}">
                         <img src="/icons/money.svg" width="50" height="50" alt="工资相关" class="icon">
                         <h3 class="font-orange" style="margin-block-start: 0.2em;">工资相关</h3>
                         <p class="text"></p>
                     </a>
-                    <a class="inline-card card-small" href="{{ url_for('report1') }}">
+                    <a class="inline-card card-small" href="{{ url_for('districts') }}">
                         <img src="/icons/place.svg" width="50" height="50" alt="地域相关" class="icon">
                         <h3 class="font-orange" style="margin-block-start: 0.2em;">地域相关</h3>
                         <p class="text"></p>
                     </a>
-                    <a class="inline-card card-small" href="{{ url_for('report1') }}">
+                    <a class="inline-card card-small" href="{{ url_for('industry') }}">
                         <img src="/icons/work.svg" width="50" height="50" alt="行业领域" class="icon">
                         <h3 class="font-orange" style="margin-block-start: 0.2em;">行业领域</h3>
                         <p class="text"></p>
                     </a>
-                    <a class="inline-card card-small" href="{{ url_for('report1') }}">
+                    <a class="inline-card card-small" href="{{ url_for('skills') }}">
                             <img src="/icons/star.svg" width="50" height="50" alt="技能相关" class="icon">
                             <h3 class="font-orange" style="margin-block-start: 0.2em;">技能相关</h3>
                             <p class="text"></p>
-                        </a>
+                    </a>
+                    <a class="inline-card card-small" href="{{ url_for('diploma') }}">
+                        <img src="/icons/star.svg" width="50" height="50" alt="学历相关" class="icon">
+                        <h3 class="font-orange" style="margin-block-start: 0.2em;">学历相关</h3>
+                        <p class="text"></p>
+                    </a>
                 </div>
             </section>
             <section id="q&a" class="section">
