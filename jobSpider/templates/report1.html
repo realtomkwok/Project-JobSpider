@@ -10,6 +10,7 @@
         body {
             font: 12px/1.5 'PT Sans', serif;
             margin: 25px;
+            padding: 5%
         }
 
         .tags {
@@ -70,71 +71,190 @@
         }
     </style>
 </head>
+
 <body onload="load()">
     <!--onload事件-->
-    <div style="margin: 5%">
-        <h2> TAGS(单选)(数据加载需要时间)</h2>
-        <ul class="tags">
-            <li><a href="#" class="tag">C#</a></li>
-            <li><a href="#" class="tag">C++</a></li>
-            <li><a href="#" class="tag">HTML+CSS</a></li>
-            <li><a href="#" class="tag">Java</a></li>
-            <li><a href="#" class="tag">JavaScript</a></li>
-            <li><a href="#" class="tag">PHP</a></li>
-            <li><a href="#" class="tag">Python</a></li>
-            <li><a href="#" class="tag">Ruby</a></li>
-            <li><a href="#" class="tag">Swift</a></li>
-            <li><a href="#" class="tag">TypeScript</a></li>
+    <div>
+        <h2> 编程语言与、岗位数量和工资关系图(单选)(首次打开网页等待30秒)</h2>
+        <ul class="tags" id="tag1">
+            <li><a href="###" class="tag">C#</a></li>
+            <li><a href="###" class="tag">C++</a></li>
+            <li><a href="###" class="tag">HTML+CSS</a></li>
+            <li><a href="###" class="tag">Java</a></li>
+            <li><a href="###" class="tag">JavaScript</a></li>
+            <li><a href="###" class="tag">PHP</a></li>
+            <li><a href="###" class="tag">Python</a></li>
+            <li><a href="###" class="tag">Ruby</a></li>
+            <li><a href="###" class="tag">Swift</a></li>
+            <li><a href="###" class="tag">TypeScript</a></li>
         </ul>
+        <div id="ZQF1" style="width:1000px; height:600px; margin: 5%"></div>
     </div>
-    <div id="ZQF1" style="width:1000px; height:600px; margin: 5%"></div>
-    <div style="margin: 5%;width:80%">
-        <h3>初步结论：
-            <ol>
-                <li>
-                    平均工资最高的是swift
-                </li>
-                <li>
-                    热门行业不一定工资高，不热门行业不一定工资低
-                </li>
-            </ol>
-        </h3>
+
+    <div>
+        <h2> 编程语言、工作经验与工资关系图</h2>
+        <ul class="tags" id="tag3">
+            <li><a href="###" class="tag">C#</a></li>
+            <li><a href="###" class="tag">C++</a></li>
+            <li><a href="###" class="tag">HTML+CSS</a></li>
+            <li><a href="###" class="tag">Java</a></li>
+            <li><a href="###" class="tag">JavaScript</a></li>
+            <li><a href="###" class="tag">PHP</a></li>
+            <li><a href="###" class="tag">Python</a></li>
+            <li><a href="###" class="tag">Ruby</a></li>
+            <li><a href="###" class="tag">Swift</a></li>
+            <li><a href="###" class="tag">TypeScript</a></li>
+        </ul>
+        <div id="LSQ1" style="width:1000px; height:600px;margin: 5%"></div>
     </div>
-    <div id="ZQF2" style="width:1000px; height:600px;margin: 5%"></div>
-    <div style="margin: 5%;width:80%">
-        <h3>初步结论：
-            <ol>
-                <li>
-                    上海整体工资最高
-                </li>
-                <li>
-                   。。。
-                </li>
-            </ol>
-        </h3>
+
+    <div>
+        <h2>编程语言、学历与工资关系图</h2>
+        <ul class="tags" id="tag4">
+            <li><a href="###" class="tag">C#</a></li>
+            <li><a href="###" class="tag">C++</a></li>
+            <li><a href="###" class="tag">HTML+CSS</a></li>
+            <li><a href="###" class="tag">Java</a></li>
+            <li><a href="###" class="tag">JavaScript</a></li>
+            <li><a href="###" class="tag">PHP</a></li>
+            <li><a href="###" class="tag">Python</a></li>
+            <li><a href="###" class="tag">Ruby</a></li>
+            <li><a href="###" class="tag">Swift</a></li>
+            <li><a href="###" class="tag">TypeScript</a></li>
+        </ul>
+        <div id="LSQ2" style="width:1000px; height:600px;margin: 5%"></div>
     </div>
-    <div id="LSQ1" style="width:1000px; height:600px;margin: 5%"></div>
-    <div id="funnel" style="width:1000px; height:600px;"></div>
-    <div id="wordcloud" style="width:1000px; height:600px;"></div>
-    <div id="mjx" style="width:1000px; height:600px;"></div>
-    <div id="LZX1" style="width:1000px; height:600px;"></div>
+
+    <div>
+        <h2> 北上广深、编程语言与和工资关系图(单选)</h2>
+        <div id="ZQF2" style="width:1000px; height:600px;margin: 5%"></div>
+    </div>
+
+    <div style="margin: 5%">
+        <h2>北上广深各区技能相关岗位平均工资</h2>
+        <ul class="tags" id="tag2">
+            <li><a href="###" class="tag">北京</a></li>
+            <li><a href="###" class="tag">上海</a></li>
+            <li><a href="###" class="tag">广州</a></li>
+            <li><a href="###" class="tag">深圳</a></li>
+        </ul>
+        <div id="ZQF3" style="width:1000px; height:600px;margin: 5%"></div>
+    </div>
+
+    <div>
+        <h2>编程语言在各地区各行业的平均工资对比关系图</h2>
+        <div id="LZX1" style="width:1000px; height:600px;"></div>
+    </div>
+
+    <div>
+        <h2>编程语言热门应用领域TOP10关系图</h2>
+        <ul class="tags" id="tag6">
+            <li><a href="###" class="tag">C#</a></li>
+            <li><a href="###" class="tag">C++</a></li>
+            <li><a href="###" class="tag">HTML+CSS</a></li>
+            <li><a href="###" class="tag">Java</a></li>
+            <li><a href="###" class="tag">JavaScript</a></li>
+            <li><a href="###" class="tag">PHP</a></li>
+            <li><a href="###" class="tag">Python</a></li>
+            <li><a href="###" class="tag">Ruby</a></li>
+            <li><a href="###" class="tag">Swift</a></li>
+            <li><a href="###" class="tag">TypeScript</a></li>
+        </ul>
+        <div id="wordcloud" style="width:1000px; height:600px;"></div>
+    </div>
+
+    <div>
+        <h2>编程语言热门岗位TOP10关系图</h2>
+        <ul class="tags" id="tag5">
+            <li><a href="###" class="tag">C#</a></li>
+            <li><a href="###" class="tag">C++</a></li>
+            <li><a href="###" class="tag">HTML+CSS</a></li>
+            <li><a href="###" class="tag">Java</a></li>
+            <li><a href="###" class="tag">JavaScript</a></li>
+            <li><a href="###" class="tag">PHP</a></li>
+            <li><a href="###" class="tag">Python</a></li>
+            <li><a href="###" class="tag">Ruby</a></li>
+            <li><a href="###" class="tag">Swift</a></li>
+            <li><a href="###" class="tag">TypeScript</a></li>
+        </ul>
+        <div id="funnel" style="width:1000px; height:600px;"></div>
+    </div>
+
+    <div>
+        <h2>热门编程相关技能</h2>
+        <div id="mjx" style="width:1000px; height:600px;"></div>
+    </div>
 
     <script>
-
-        var nodeList = document.getElementsByTagName('li');
-        for (var i = 0; i < nodeList.length; i++) {
+        var oTab1 = document.getElementById("tag1");
+        var nodeList1 = oTab1.children;
+        for (var i = 0; i < nodeList1.length; i++) {
             (function (j) {
-                nodeList[j].addEventListener("click", function (e) {
+                nodeList1[j].addEventListener("click", function (e) {
                     console.log(e.target.innerText)
                     ZQF1(e.target.innerText)
-                    LSQ1(e.target.innerText)
-                    funnel(e.target.innerText)
-                    wordcloud(e.target.innerText)
+
                     mjx(e.target.innerText)
                     LZX1(e.target.innerText)
                 }, false);
             })(i);
         }
+
+        var oTab2 = document.getElementById("tag2");
+        var nodeList2 = oTab2.children;
+        for (var i = 0; i < nodeList2.length; i++) {
+            (function (j) {
+                nodeList2[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                    ZQF3(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
+
+        var oTab3 = document.getElementById("tag3");
+        var nodeList3 = oTab3.children;
+        for (var i = 0; i < nodeList3.length; i++) {
+            (function (j) {
+                nodeList3[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                    LSQ1(e.target.innerText)
+                }, false);
+            })(i);
+        }
+        var oTab4 = document.getElementById("tag4");
+        var nodeList4 = oTab4.children;
+        for (var i = 0; i < nodeList4.length; i++) {
+            (function (j) {
+                nodeList4[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                    LSQ2(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
+        var oTab5 = document.getElementById("tag5");
+        var nodeList5 = oTab5.children;
+        for (var i = 0; i < nodeList5.length; i++) {
+            (function (j) {
+                nodeList5[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                    funnel(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
+        var oTab6 = document.getElementById("tag6");
+        var nodeList6 = oTab6.children;
+        for (var i = 0; i < nodeList6.length; i++) {
+            (function (j) {
+                nodeList6[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                    wordcloud(e.target.innerText)
+                }, false);
+            })(i);
+        }
+
 
         function ZQF1(lang) {
             var chart = echarts.init(document.getElementById('ZQF1'), 'white', { renderer: 'canvas' });
@@ -161,6 +281,19 @@
             });
         };
 
+        function ZQF3(city) {
+            var chart = echarts.init(document.getElementById('ZQF3'), 'white', { renderer: 'canvas' });
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/ZQF3",
+                data: "city=" + encodeURIComponent(city),
+                dataType: 'json',
+                success: function (result) {
+                    chart.setOption(result);
+                }
+            });
+        };
+
         function LSQ1(lang) {
             var chart = echarts.init(document.getElementById('LSQ1'), 'white', { renderer: 'canvas' });
             $.ajax({
@@ -174,66 +307,82 @@
             });
         };
 
-        function funnel(lang){
-            var funnel = echarts.init(document.getElementById('funnel'), 'white', { renderer: 'canvas' });
-                $.ajax({
-                    type: "POST",
-                    url: "http://127.0.0.1:5000/funnelChart",
-                    data:"lang="+encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
-                    dataType: 'json',
-                    success: function (result) {
-                        funnel.setOption(result);
-                    }
-                });     
+        function LSQ2(lang) {
+            var chart = echarts.init(document.getElementById('LSQ2'), 'white', { renderer: 'canvas' });
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/LSQ2",
+                data: "lang=" + encodeURIComponent(lang),
+                dataType: 'json',
+                success: function (result) {
+                    chart.setOption(result);
+                }
+            });
         };
 
-        function wordcloud(lang){
+        function funnel(lang) {
+            var funnel = echarts.init(document.getElementById('funnel'), 'white', { renderer: 'canvas' });
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/funnelChart",
+                data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+                dataType: 'json',
+                success: function (result) {
+                    funnel.setOption(result);
+                }
+            });
+        };
+
+        function wordcloud(lang) {
             var wordcloud = echarts.init(document.getElementById('wordcloud'), 'white', { renderer: 'canvas' });
-                $.ajax({
-                    type: "POST",
-                    url: "http://127.0.0.1:5000/wordcloudChart",
-                    data:"lang="+encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
-                    dataType: 'json',
-                    success: function (result) {
-                        wordcloud.setOption(result);
-                    }
-                });     
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/wordcloudChart",
+                data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+                dataType: 'json',
+                success: function (result) {
+                    wordcloud.setOption(result);
+                }
+            });
         }
 
-         function mjx(lang){
+        function mjx(lang) {
             var mjx = echarts.init(document.getElementById('mjx'), 'white', { renderer: 'canvas' });
-                $.ajax({
-                    type: "POST",
-                    url: "http://127.0.0.1:5000/mjxChart",
-                    data:"lang="+encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
-                    dataType: 'json',
-                    success: function (result) {
-                        mjx.setOption(result);
-                    }
-                });     
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/mjxChart",
+                data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+                dataType: 'json',
+                success: function (result) {
+                    mjx.setOption(result);
+                }
+            });
         }
 
-        function LZX1(lang){
+        function LZX1(lang) {
             var chart = echarts.init(document.getElementById('LZX1'), 'white', { renderer: 'canvas' });
-                $.ajax({
-                    type: "POST",
-                    url: "http://127.0.0.1:5000/LZX1",
-                    data:"lang="+encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
-                    dataType: 'json',
-                    success: function (result) {
-                        chart.setOption(result);
-                    }
-                });
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/LZX1",
+                data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+                dataType: 'json',
+                success: function (result) {
+                    chart.setOption(result);
+                }
+            });
         }
 
         function load() {
-            ZQF1("C#")
-            ZQF2()
-            LSQ1("C#")
-            funnel("C#")
-            wordcloud("C#")
-            mjx("C#")
-            LZX1("C#")
+
+            ZQF1("C#")    //语言与岗位个数/与工资 
+            ZQF2()    //城市/与各语言/与工资
+            LSQ2("C#")//学历与工资
+            LSQ1("C#")   //工资与经验
+            ZQF3("北京")//行业/区域
+            funnel("C#")//岗位热门词
+            wordcloud("C#")//热门应用热门词
+            mjx("C#")//相关技能
+            LZX1("C#")//行业和区域
         }
     </script>
 </body>
