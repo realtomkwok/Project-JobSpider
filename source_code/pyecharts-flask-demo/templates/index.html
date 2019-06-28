@@ -86,32 +86,45 @@
             <li><a href="#" class="tag">TypeScript</a></li>
         </ul>
     </div>
-    <div id="bar" style="width:1000px; height:600px;"></div>
-    <div id="pie" style="width:1000px; height:600px;"></div>
+    <div id="funnel" style="width:1000px; height:600px;"></div>
+    <div id="wordcloud" style="width:1000px; height:600px;"></div>
 
     <script>
-
         var nodeList = document.getElementsByTagName('li');
         for (var i = 0; i < nodeList.length; i++) {
             (function (j) {
                 nodeList[j].addEventListener("click", function (e) {
                     console.log(e.target.innerText)
-                    test(e.target.innerText)
+                    funnel(e.target.innerText)
+                    wordcloud(e.target.innerText)
                 }, false);
             })(i);
         }
 
-        function test(lang){
-            var chart = echarts.init(document.getElementById('bar'), 'white', { renderer: 'canvas' });
+        function funnel(lang){
+            var funnel = echarts.init(document.getElementById('funnel'), 'white', { renderer: 'canvas' });
                 $.ajax({
                     type: "POST",
-                    url: "http://127.0.0.1:5000/barChart",
+                    url: "http://127.0.0.1:5000/funnelChart",
                     data:"lang="+encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
                     dataType: 'json',
                     success: function (result) {
-                        chart.setOption(result);
+                        funnel.setOption(result);
                     }
-                });
+                });     
+        };
+
+        function wordcloud(lang){
+            var wordcloud = echarts.init(document.getElementById('wordcloud'), 'white', { renderer: 'canvas' });
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:5000/wordcloudChart",
+                    data:"lang="+encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+                    dataType: 'json',
+                    success: function (result) {
+                        wordcloud.setOption(result);
+                    }
+                });     
         }
     </script>
 </body>
