@@ -171,8 +171,8 @@ a:-webkit-any-link {
     padding: 1.5em 2em;
 }
 .card-small {
-    width: 15rem;
-    min-width: 15rem;
+    width: 13rem;
+    min-width: 13rem;
     min-height: 10rem;
 }
 .inline-card .icon {
