@@ -140,6 +140,7 @@ def ZQF2() -> Timeline:
             )
         )
             .set_global_opts(title_opts=opts.TitleOpts("{}各语言平均工资".format(i)),
+                              toolbox_opts=opts.ToolboxOpts(),
             )
             .set_series_opts(
             label_opts=opts.LabelOpts(is_show=False),
@@ -154,6 +155,70 @@ def ZQF2() -> Timeline:
         )
         tl.add(bar, "{}".format(i))
     return tl
+#####################################################################
+print("开始处理ZQF第三个表格的数据")
+print("请稍等......")
+cities=[]
+cities_avg_wage = []
+districts = []
+districts_avg_wage = []
+a = []
+
+for each_table in ['data/ZQF/C#.xlsx','data/ZQF/C++.xlsx','data/ZQF/HTML+CSS.xlsx','data/ZQF/Java.xlsx','data/ZQF/JavaScript.xlsx','data/ZQF/PHP.xlsx','data/ZQF/Python.xlsx','data/ZQF/Ruby.xlsx','data/ZQF/Swift.xlsx','data/ZQF/TypeScript.xlsx']:
+    df = pd.read_excel(each_table)
+    df["district"] = df.district.str.split('\\xa0').str[0]
+
+    if not cities:
+        cities = list(df.groupby("city").wage_avg.mean().keys())
+   
+    for each in list(df.groupby("district").wage_avg.mean().keys()):
+        if each not in districts:
+            districts.append(each)           
+            districts_avg_wage.append(round(df.query("district== '"+each+"'" ).wage_avg.mean(), 2))
+        else:     
+            districts_avg_wage[districts.index(each)] = round((districts_avg_wage[districts.index(each)] + df.query("district== '"+each+"'" ).wage_avg.mean())/2, 2)
+
+            #求各区平均薪资
+    b = list(df.groupby(["city","district"]).wage_avg.mean().keys())   
+    for each in b:
+        if each not in a:
+            a.append(each) 
+        
+          #建立一个城市区域的联系表
+city_district_dic = defaultdict(list)
+for i in range(len(a)):
+    city_district_dic[a[i][0]].append(a[i][1])
+
+a = []
+city_wage_dict={"上海":[],"北京":[],"广州":[],"深圳":[]}
+d = dict(zip(districts,districts_avg_wage))
+for each in city_district_dic:
+    for i in city_district_dic[each]: 
+        city_wage_dict[each].append(d[i])
+
+#print(city_wage_dict)
+#print(city_district_dic)   
+#城市和工资联系表
+
+#ZQF############################################################################
+def ZQF3(city) -> Bar:
+    c = (
+        Bar()
+        .add_xaxis(city_district_dic[city])
+        .add_yaxis('平均工资',city_wage_dict[city])
+        .set_global_opts(title_opts=opts.TitleOpts(title= city+"各区各编程语言工资", subtitle=""), toolbox_opts=opts.ToolboxOpts(),)
+        .set_series_opts(
+            label_opts=opts.LabelOpts(is_show=False),
+            markline_opts=opts.MarkLineOpts(
+                data=[
+                    opts.MarkLineItem(type_="min", name="最小值"),
+                    opts.MarkLineItem(type_="max", name="最大值"),
+                ]
+            ),
+        )
+    )
+    return c
+
 
 def LSQ1(lang) -> Bar:
     language = "data/ZQF/"+lang+".xlsx"
@@ -172,9 +237,10 @@ def LSQ1(lang) -> Bar:
         .add_yaxis('北京', beijing)
         .add_yaxis('广州', guangzhou)
         .add_yaxis('深圳', shenzhen)
-        .set_global_opts(title_opts={"text": lang, "subtext": "工资与经验关系图"})
+        .set_global_opts(title_opts={"text": lang, "subtext": "工资与经验关系图"}, toolbox_opts=opts.ToolboxOpts(),)
     )
     return bar
+
 
 def LSQ2(lang) -> Bar:
     language = "data/ZQF/"+lang+".xlsx"
@@ -193,7 +259,8 @@ def LSQ2(lang) -> Bar:
         .add_yaxis('北京', beijing)
         .add_yaxis('广州', guangzhou)
         .add_yaxis('深圳', shenzhen)
-        .set_global_opts(title_opts={"text": lang, "subtext": "工资与经验关系图"})
+        .set_global_opts(title_opts={"text": lang, "subtext": "工资与经验关系图"},
+                          toolbox_opts=opts.ToolboxOpts(),)
     )
     return bar   
 
@@ -317,6 +384,7 @@ def LZX1(lang) -> Bar:
             yaxis_opts=opts.AxisOpts(name="单位/百分比"),
             xaxis_opts=opts.AxisOpts(name="行业",axislabel_opts=opts.LabelOpts(rotate=-8)),
             title_opts=opts.TitleOpts(title=lang),
+             toolbox_opts=opts.ToolboxOpts(),
             datazoom_opts=opts.DataZoomOpts(),
     )
     )
@@ -349,12 +417,29 @@ def get_ZQF2():
     c = ZQF2()
     return c.dump_options()
 
+@app.route("/ZQF3",methods=[ 'POST'])
+def get_ZQF3():
+    if request.method == "POST":
+        city = request.form.get('city', '')
+    print(city)
+    c = ZQF3(city)
+    return c.dump_options()
+
+
 @app.route("/LSQ1", methods=[ 'POST'])
 def get_LSQ1():    
     if request.method == "POST":
         lang = request.form.get('lang', '')
     print(lang)
     c = LSQ1(lang)
+    return c.dump_options()
+
+@app.route("/LSQ2", methods=[ 'POST'])
+def get_LSQ2():    
+    if request.method == "POST":
+        lang = request.form.get('lang', '')
+    print(lang)
+    c = LSQ2(lang)
     return c.dump_options()
 
 @app.route("/funnelChart",methods=[ 'POST'])
