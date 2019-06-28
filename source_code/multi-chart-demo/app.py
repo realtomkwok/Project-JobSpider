@@ -114,25 +114,29 @@ from pyecharts import options as opts
 from pyecharts.charts import Bar, Page, Pie, Timeline
 from collections import defaultdict
 
-def ZQF2() -> Timeline:
-    print("第二个表格开始处理")
-    languages = ["C#", "C++","HTML+CSS","Java","JavaScript","PHP","Python","Ruby","Swift","TypeScript","",]
-    city_salary_dict = {"北京":[],"广州":[],"深圳":[],"上海":[],}
+#################################################################################
+print("开始处理ZQF第二个表格的数据")
+ZQF2_languages = ["C#", "C++","HTML+CSS","Java","JavaScript","PHP","Python","Ruby","Swift","TypeScript","",]
+ZQF2_city_salary_dict = {"北京":[],"广州":[],"深圳":[],"上海":[],}
+
+for each_table in ['data/ZQF/C#.xlsx','data/ZQF/C++.xlsx','data/ZQF/HTML+CSS.xlsx','data/ZQF/Java.xlsx','data/ZQF/JavaScript.xlsx','data/ZQF/PHP.xlsx','data/ZQF/Python.xlsx','data/ZQF/Ruby.xlsx','data/ZQF/Swift.xlsx','data/ZQF/TypeScript.xlsx']:
+    ZQF2_df = pd.read_excel(each_table)
+    ZQF2_cities = list(ZQF2_df.groupby("city").wage_avg.mean().keys())
+    ZQF2_cities_avg_wage = list(ZQF2_df.groupby("city").wage_avg.mean().round(2))
     
-    for each_table in ['data/ZQF/C#.xlsx','data/ZQF/C++.xlsx','data/ZQF/HTML+CSS.xlsx','data/ZQF/Java.xlsx','data/ZQF/JavaScript.xlsx','data/ZQF/PHP.xlsx','data/ZQF/Python.xlsx','data/ZQF/Ruby.xlsx','data/ZQF/Swift.xlsx','data/ZQF/TypeScript.xlsx']:
-        df = pd.read_excel(each_table)
-        cities = list(df.groupby("city").wage_avg.mean().keys())
-        cities_avg_wage = list(df.groupby("city").wage_avg.mean().round(2))
-        
-        for i in [0,1,2,3]:
-            city_salary_dict[cities[i]].append(cities_avg_wage[i])
-        
+    for i in [0,1,2,3]:
+        ZQF2_city_salary_dict[ZQF2_cities[i]].append(ZQF2_cities_avg_wage[i])
+
+###################################################################
+
+def ZQF2() -> Timeline:
+    print("第二个表格开始处理")    
     tl = Timeline()
-    for i in cities:
+    for i in ZQF2_cities:
         bar = (
             Bar()
-            .add_xaxis(languages)
-            .add_yaxis("{}平均工资".format(i), city_salary_dict[i],  yaxis_index=1)
+            .add_xaxis(ZQF2_languages)
+            .add_yaxis("{}平均工资".format(i), ZQF2_city_salary_dict[i],  yaxis_index=1)
             .extend_axis(
             yaxis=opts.AxisOpts(
                 type_="value",
@@ -165,29 +169,34 @@ def ZQF2() -> Timeline:
         tl.add(bar, "{}".format(i))
     return tl
 
+################################################################################################
+print("开始处理ZQF第三个表格的数据")
+for each_table in ['data/ZQF/C#.xlsx','data/ZQF/C++.xlsx','data/ZQF/HTML+CSS.xlsx','data/ZQF/Java.xlsx','data/ZQF/JavaScript.xlsx','data/ZQF/PHP.xlsx','data/ZQF/Python.xlsx','data/ZQF/Ruby.xlsx','data/ZQF/Swift.xlsx','data/ZQF/TypeScript.xlsx']:
+    ZQF3_df = pd.read_excel(each_table)
+    ZQF3_cities = list(ZQF3_df.groupby("city").wage_avg.mean().keys())
+    ZQF3_cities_avg_wage = list(ZQF3_df.groupby("city").wage_avg.mean().round(2))
+ 
+    if not ZQF3_cities:
+        ZQF3_cities = list(ZQF3_df.groupby("city").wage_avg.mean().keys())
+        ZQF3_cities_avg_wage = list(ZQF3_df.groupby("city").wage_avg.mean().round(2))
+    else:
+        new_cities_avg_wage = list(ZQF3_df.groupby("city").wage_avg.mean().round(2))
+        for i in [0,1,2,3]:
+            ZQF3_cities_avg_wage[i] = round((ZQF3_cities_avg_wage[i] + new_cities_avg_wage[i])/2,2)
+
+    
+###################################################################################################
+
 def ZQF3():
     print("第三个表格开始处理")
-    for each_table in ['data/ZQF/C#.xlsx','data/ZQF/C++.xlsx','data/ZQF/HTML+CSS.xlsx','data/ZQF/Java.xlsx','data/ZQF/JavaScript.xlsx','data/ZQF/PHP.xlsx','data/ZQF/Python.xlsx','data/ZQF/Ruby.xlsx','data/ZQF/Swift.xlsx','data/ZQF/TypeScript.xlsx']:
-        df = pd.read_excel(each_table)
-        cities = list(df.groupby("city").wage_avg.mean().keys())
-        cities_avg_wage = list(df.groupby("city").wage_avg.mean().round(2))
- 
-        if not cities:
-            cities = list(df.groupby("city").wage_avg.mean().keys())
-            cities_avg_wage = list(df.groupby("city").wage_avg.mean().round(2))
-        else:
-            new_cities_avg_wage = list(df.groupby("city").wage_avg.mean().round(2))
-            for i in [0,1,2,3]:
-                cities_avg_wage[i] = round((cities_avg_wage[i] + new_cities_avg_wage[i])/2,2)
-
     bar = (
         Bar()
-        .add_xaxis(cities)
-        .add_yaxis('人均工资', cities_avg_wage, category_gap="60%")
+        .add_xaxis(ZQF3_cities)
+        .add_yaxis('人均工资', ZQF3_cities_avg_wage, category_gap="60%")
         .set_global_opts(title_opts={"text": "C#", "subtext": "工资与城市分布关系图"})
        .set_series_opts(label_opts=opts.LabelOpts(is_show=False),
                         markline_opts=opts.MarkLineOpts(
-                                data=[opts.MarkLineItem(y=max(cities_avg_wage), name="yAxis=50")]
+                                data=[opts.MarkLineItem(y=max(ZQF3_cities_avg_wage), name="yAxis=50")]
                                 ),
                         )
                         )
