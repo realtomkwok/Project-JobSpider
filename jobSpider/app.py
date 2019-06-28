@@ -7,7 +7,7 @@ from pyecharts.charts import Bar, Line, Grid, Funnel, WordCloud
 from pyecharts.globals import SymbolType
 import pandas as pd  
 
-app = Flask(__name__, static_folder="templates")
+app = Flask(__name__, static_url_path='')
 
 app.config['JSON_AS_ASCII'] = False
 

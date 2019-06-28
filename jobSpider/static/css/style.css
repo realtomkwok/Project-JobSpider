@@ -18,27 +18,27 @@
 /* font */
 @font-face {
     font-family: "IBM Plex Mono";
-    src: url("../static/font/IBMPlexMono-Regular.ttf");
+    src: url("/font/IBMPlexMono-Regular.ttf");
     font-weight: 500    
 }
 @font-face {
     font-family: "IBM Plex Mono";
-    src: url("../static/font/IBMPlexMono-Bold.ttf");
+    src: url("/font/IBMPlexMono-Bold.ttf");
     font-weight: 700;
 }
 @font-face {
     font-family: "IBM Plex Mono";
-    src: url("../static/font/IBMPlexSans-Text.ttf");
+    src: url("/font/IBMPlexSans-Text.ttf");
     font-weight: 300
 }
 @font-face {
     font-family: "Source Sans";
-    src: url("../static/font/SourceSansPro-Regular.ttf");
+    src: url("/font/SourceSansPro-Regular.ttf");
     font-weight: 400;
 }
 @font-face {
     font-family: "Source Sans";
-    src: url("../static/font/SourceSansPro-SemiBold.ttf");
+    src: url("/font/SourceSansPro-SemiBold.ttf");
     font-weight: 600;
 }
 

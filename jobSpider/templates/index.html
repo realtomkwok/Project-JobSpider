@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>jobSpider 职业报告</title>
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
 </head>
 <body>
     <nav class="navbar navbar-dark">
         <a class="navbar-brand" href="#">
-            <img src="../static/Logo.svg" width="168" height="35" class="d-inline-block align-top" alt="jobSpider">
+            <img src="/img/Logo.svg" width="168" height="35" class="d-inline-block align-top" alt="jobSpider">
         </a>
     </nav>
     <div class="content">
@@ -34,22 +34,22 @@
                 <p class="subtitle font-type-blue">报告分类<p>
                 <div class="scrolling-wrapper">
                     <a class="inline-card card-small" href="{{ url_for('report1') }}">
-                        <img src="../static/icons/money.svg" width="50" height="50" alt="工资相关" class="icon">
+                        <img src="/icons/money.svg" width="50" height="50" alt="工资相关" class="icon">
                         <h3 class="font-orange" style="margin-block-start: 0.2em;">工资相关</h3>
                         <p class="text"></p>
                     </a>
-                    <a class="inline-card card-small" href="{{ url_for(' ') }}">
-                        <img src="../static/icons/place.svg" width="50" height="50" alt="地域相关" class="icon">
+                    <a class="inline-card card-small" href="{{ url_for('report1') }}">
+                        <img src="/icons/place.svg" width="50" height="50" alt="地域相关" class="icon">
                         <h3 class="font-orange" style="margin-block-start: 0.2em;">地域相关</h3>
                         <p class="text"></p>
                     </a>
-                    <a class="inline-card card-small" href="{{ url_for(' ') }}">
-                        <img src="../static/icons/work.svg" width="50" height="50" alt="行业领域" class="icon">
+                    <a class="inline-card card-small" href="{{ url_for('report1') }}">
+                        <img src="/icons/work.svg" width="50" height="50" alt="行业领域" class="icon">
                         <h3 class="font-orange" style="margin-block-start: 0.2em;">行业领域</h3>
                         <p class="text"></p>
                     </a>
-                    <a class="inline-card card-small" href="{{ url_for(' ') }}">
-                            <img src="../static/icons/star.svg" width="50" height="50" alt="技能相关" class="icon">
+                    <a class="inline-card card-small" href="{{ url_for('report1') }}">
+                            <img src="/icons/star.svg" width="50" height="50" alt="技能相关" class="icon">
                             <h3 class="font-orange" style="margin-block-start: 0.2em;">技能相关</h3>
                             <p class="text"></p>
                         </a>
