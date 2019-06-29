@@ -140,7 +140,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <!-- <div class="section">
             <h3>北上广深各区技能相关岗位平均工资</h3>
             <ul class="tags" id="tag2">
                 <li><a href="###" class="button">北京</a></li>
@@ -160,7 +160,7 @@
                     <p class="text">数据分析得出的编程语言相关行业平均工资的区域与平时认知的龙头区域并不一致；原因可能有二：一、编程语言相关行业大多并不位于龙头区域；二、由于我们的数据来源太狭隘，分析结果与实际有出入</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="next_chapter">
         <a href="{{ url_for('district') }}">
@@ -182,16 +182,16 @@
         })(i);
     }
 
-    var oTab2 = document.getElementById("tag2");
-    var nodeList2 = oTab2.children;
-    for (var i = 0; i < nodeList2.length; i++) {
-        (function (j) {
-            nodeList2[j].addEventListener("click", function (e) {
-                console.log(e.target.innerText)
-                ZQF3(e.target.innerText)
-            }, false);
-        })(i);
-    }
+    // var oTab2 = document.getElementById("tag2");
+    // var nodeList2 = oTab2.children;
+    // for (var i = 0; i < nodeList2.length; i++) {
+    //     (function (j) {
+    //         nodeList2[j].addEventListener("click", function (e) {
+    //             console.log(e.target.innerText)
+    //             ZQF3(e.target.innerText)
+    //         }, false);
+    //     })(i);
+    // }
 
 
     var oTab3 = document.getElementById("tag3");
@@ -240,18 +240,18 @@
         });
     };
 
-    function ZQF3(city) {
-        var chart = echarts.init(document.getElementById('ZQF3'), 'white', { renderer: 'canvas' });
-        $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:5000/ZQF3",
-            data: "city=" + encodeURIComponent(city),
-            dataType: 'json',
-            success: function (result) {
-                chart.setOption(result);
-            }
-        });
-    };
+    // function ZQF3(city) {
+    //     var chart = echarts.init(document.getElementById('ZQF3'), 'white', { renderer: 'canvas' });
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "http://127.0.0.1:5000/ZQF3",
+    //         data: "city=" + encodeURIComponent(city),
+    //         dataType: 'json',
+    //         success: function (result) {
+    //             chart.setOption(result);
+    //         }
+    //     });
+    // };
 
     function LSQ1(lang) {
         var chart = echarts.init(document.getElementById('LSQ1'), 'white', { renderer: 'canvas' });
@@ -285,7 +285,7 @@
         ZQF2()    //城市/与各语言/与工资
         LSQ2("C#")//学历与工资
         LSQ1("C#")   //工资与经验
-        ZQF3("北京")//行业/区域
+        // ZQF3("北京")//行业/区域
 
     }
 </script>
