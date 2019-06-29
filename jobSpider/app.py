@@ -434,7 +434,7 @@ def LZX2_base() :
     lzx = (
         WordCloud()
         .add("", counts, word_size_range=[20, 100]
-    )
+    ))
     return lzx
 
 @app.route("/")
