@@ -274,7 +274,7 @@ def LSQ1(lang) -> Bar:
 
 
 def LSQ2(lang) -> Bar:
-    language = "data/LSQ/"+lang"_dip"+".xlsx"
+    language = "data/LSQ/"+lang+"_dip"+".xlsx"
     new_data = pd.read_excel(language)
     #data = df.groupby(['city', 'diploma_requirement']).avgWage.mean().round(2).reset_index(name='salary')
 
