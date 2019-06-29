@@ -274,14 +274,14 @@ def LSQ1(lang) -> Bar:
 
 
 def LSQ2(lang) -> Bar:
-    language = "data/LSQ/"+lang+"_dip"+".xlsx"
-    new_data = pd.read_excel(language)
+    language = "data/LSQ/"+lang+".xlsx"
+    df = pd.read_excel(language)
     #data = df.groupby(['city', 'diploma_requirement']).avgWage.mean().round(2).reset_index(name='salary')
 
-    shanghai = list(new_data.query("city=='上海'").salary)
-    beijing = list(new_data.query("city=='北京'").salary)
-    guangzhou = list(new_data.query("city=='广州'").salary)
-    shenzhen = list(new_data.query("city=='深圳'").salary)
+    shanghai = list(df.query("city=='上海'").salary)
+    beijing = list(df.query("city=='北京'").salary)
+    guangzhou = list(df.query("city=='广州'").salary)
+    shenzhen = list(df.query("city=='深圳'").salary)
 
     bar = (
         Bar()
@@ -426,17 +426,14 @@ def LZX2_base() :
     df = pd.read_excel("data/LZX/All.xlsx")
     welfares = ['五险一金','绩效奖金','餐饮补贴','周末双休','定期体检','员工旅游','带薪年假','定期团建','项目奖金','大牛带队','补充医疗保险','加班补助','年终奖','通讯补贴','交通补贴','零食下午茶','节日福利','免费住宿','不加班','弹性工作','包吃','免费班车','高温补贴','健身俱乐部','全勤奖','年底双薪','住房补贴','专业培训']
     counts=[]
+    for welfare in welfares:
+        count = df[df.welfare.str.contains(welfare)].shape[0]
+        welfare_count=(welfare,count)
+        counts.append(welfare_count)
 
-    def sort_welfare():
-        for welfare in welfares:
-            count = df[df.welfare.str.contains(welfare)].shape[0]
-            welfare_count=(welfare,count)
-            counts.append(welfare_count)
-            return counts
-    words = sort_welfare()    
     lzx = (
         WordCloud()
-        .add("", words, word_size_range=[20, 100])
+        .add("", counts, word_size_range=[20, 100])
         .set_global_opts(title_opts=opts.TitleOpts(title="WordCloud-基本示例"))
     )
     return lzx
@@ -464,6 +461,10 @@ def skills():
 @app.route("/diploma")
 def diploma():
     return render_template("diploma.html")
+
+@app.route("/welfare")
+def welfare():
+    return render_template("welfare.html")
 
 @app.route("/ZQF1",methods=[ 'POST'])
 def get_ZQF1():
