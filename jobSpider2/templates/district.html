@@ -34,7 +34,7 @@
         <div class="hero">
             <h1 class="font-type-blue">print<span class="font-black">(</span>'地域相关'<span class="font-black">)</span></h1>
             <div class="text">
-                <p>薪资作为求职者的一个重要衡量指标，自然是本报告的重点关注。以下是十种不同编程语言所属行业、所需经验、学历，以及所在城市和薪资水平的关系图。</p>
+                <p>不同城市的发展程度和方向，对职位要求以及薪资水平会有着重要的影响。以下是十种语言在北京、上海、广州、深圳四个城市的薪资水平和行业分布关系图。</p>
                 <p>轻按标签即可阅读所属标签图表。首次加载速度会较长，请耐心等待。</p>
                 <!-- <p>*本报告所有数据来自上述招聘网站的公开数据，与真实的市场需求有可能存在偏差，结论仅供参考。</p> -->
             </div>
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div class="section">
+        <!-- <div class="section">
             <h3>北上广深各区技能相关岗位平均工资</h3>
             <ul class="tags" id="tag2">
                 <li><a href="###" class="button">北京</a></li>
@@ -74,7 +74,7 @@
                     <p class="text">数据分析得出的编程语言相关行业平均工资的区域与平时认知的龙头区域并不一致；原因可能有二：一、编程语言相关行业大多并不位于龙头区域；二、由于我们的数据来源太狭隘，分析结果与实际有出入</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="section">
             <h3>编程语言在各地区各行业的分布关系图</h3>
             <ul class="tags" id="tag3">
@@ -144,18 +144,18 @@
         });
     };
 
-    function ZQF3(city) {
-        var chart = echarts.init(document.getElementById('ZQF3'), 'white', { renderer: 'canvas' });
-        $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:5000/ZQF3",
-            data: "city=" + encodeURIComponent(city),
-            dataType: 'json',
-            success: function (result) {
-                chart.setOption(result);
-            }
-        });
-    }
+    // function ZQF3(city) {
+    //     var chart = echarts.init(document.getElementById('ZQF3'), 'white', { renderer: 'canvas' });
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "http://127.0.0.1:5000/ZQF3",
+    //         data: "city=" + encodeURIComponent(city),
+    //         dataType: 'json',
+    //         success: function (result) {
+    //             chart.setOption(result);
+    //         }
+    //     });
+    // }
 
     function LZX1(lang) {
         var chart = echarts.init(document.getElementById('LZX1'), 'white', { renderer: 'canvas' });
@@ -172,7 +172,7 @@
 
     function load() {   
         ZQF2()    //城市/与各语言/与工资
-        ZQF3("北京")//行业/区域
+        // ZQF3("北京")//行业/区域
         LZX1("C#")//行业和区域
     }
 </script>
