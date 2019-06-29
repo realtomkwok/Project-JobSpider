@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>福利相关</title>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            color: black;
+        }
+    </style>
+</head>
+<body onload="load()">
+    <nav class="navbar navbar-dark">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top" alt="jobSpider">
+        </a>
+    </nav>
+    <div class="content">
+        <div class="hero">
+            <h1 class="font-type-blue">print<span class="font-black">(</span>'福利相关'<span class="font-black">)</span></h1>
+            <div class="text">
+                <p>薪资作为求职者的一个重要衡量指标，自然是本报告的重点关注。以下是十种不同编程语言所属行业、所需经验、学历，以及所在城市和薪资水平的关系图。</p>
+                <p>轻按标签即可阅读所属标签图表。首次加载速度会较长，请耐心等待。</p>
+                <!-- <p>*本报告所有数据来自上述招聘网站的公开数据，与真实的市场需求有可能存在偏差，结论仅供参考。</p> -->
+            </div>
+        </div>
+        <div class="section">
+            <h3>十大语言福利关系图</h3>
+            <div class="figure">
+                <div id="LZX2" class="chart"></div>
+                <div class="caption">
+                    <p class="text">hello, world!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function LZX() {
+            var LZX2 = echarts.init(document.getElementById('LZX2'), 'white', { renderer: 'canvas' });
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:5000/LZX2",     
+                    dataType: 'json',
+                    success: function (result) {
+                        LZX2.setOption(result);
+                    }
+                });
+        };
+        function load() {
+            LZX2()
+        }
+    </script>
+</body>
+</html>
