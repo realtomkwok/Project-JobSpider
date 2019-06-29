@@ -359,7 +359,7 @@ def mjx_base(lang) -> WordCloud:
     mjx = (
             WordCloud()
             .add("", words, word_size_range=[20, 100],shape="pentagon",word_gap = 40,rotate_step= 25)
-            .set_global_opts(title_opts=opts.TitleOpts(title="WordCloud-shape-diamond"),
+            .set_global_opts(title_opts=opts.TitleOpts(title="热门编程相关技能"),
                              toolbox_opts=opts.ToolboxOpts())
         )
     return mjx

@@ -18,7 +18,7 @@
 <body onload="load()">
     <!--onload事件-->
     <nav class="navbar navbar-dark">
-        <a class="navbar-brand" href="{{ url_for('/') }}">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
             <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top" alt="jobSpider">
         </a>
     </nav>
@@ -75,7 +75,12 @@
                     <li><a href="###" class="button">TypeScript</a></li>
                 </div>
             </ul>
-            <div id="LSQ1" style="width:1000px; height:500px"></div>
+            <div class="figure">
+                <div id="LSQ1" class="chart"></div>
+                <div class="caption">
+                    <p class="text">hello, world!</p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
@@ -96,12 +101,22 @@
                     <li><a href="###" class="button">TypeScript</a></li>
                 </div>
             </ul>
-            <div id="LSQ2" style="width:1000px; height:500px"></div>
+            <div class="figure">
+                <div id="LSQ2" class="chart"></div>
+                <div class="caption">
+                    <p class="text">hello, world!</p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
             <h3> 北上广深、编程语言与和工资关系图(单选)</h3>
-            <div id="ZQF2" style="width:1000px; height:500px"></div>
+            <div class="figure">
+                <div id="ZQF2" class="chart"></div>
+                <div class="caption">
+                    <p class="text">hello, world!</p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
@@ -112,7 +127,12 @@
                 <li><a href="###" class="button">广州</a></li>
                 <li><a href="###" class="button">深圳</a></li>
             </ul>
-            <div id="ZQF3" style="width:1000px; height:500px"></div>
+            <div class="figure">
+                <div id="ZQF3" class="chart"></div>
+                <div class="caption">
+                    <p class="text">hello, world!</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="next_chapter">
@@ -122,126 +142,126 @@
         </a>
     </div>
 
-    <script>
-        var oTab1 = document.getElementById("tag1");
-        var nodeList1 = oTab1.children;
-        for (var i = 0; i < nodeList1.length; i++) {
-            (function (j) {
-                nodeList1[j].addEventListener("click", function (e) {
-                    console.log(e.target.innerText)
-                    ZQF1(e.target.innerText)
+<script>
+    var oTab1 = document.getElementById("tag1");
+    var nodeList1 = oTab1.children;
+    for (var i = 0; i < nodeList1.length; i++) {
+        (function (j) {
+            nodeList1[j].addEventListener("click", function (e) {
+                console.log(e.target.innerText)
+                ZQF1(e.target.innerText)
 
-                }, false);
-            })(i);
-        }
+            }, false);
+        })(i);
+    }
 
-        var oTab2 = document.getElementById("tag2");
-        var nodeList2 = oTab2.children;
-        for (var i = 0; i < nodeList2.length; i++) {
-            (function (j) {
-                nodeList2[j].addEventListener("click", function (e) {
-                    console.log(e.target.innerText)
-                    ZQF3(e.target.innerText)
-                }, false);
-            })(i);
-        }
+    var oTab2 = document.getElementById("tag2");
+    var nodeList2 = oTab2.children;
+    for (var i = 0; i < nodeList2.length; i++) {
+        (function (j) {
+            nodeList2[j].addEventListener("click", function (e) {
+                console.log(e.target.innerText)
+                ZQF3(e.target.innerText)
+            }, false);
+        })(i);
+    }
 
 
-        var oTab3 = document.getElementById("tag3");
-        var nodeList3 = oTab3.children;
-        for (var i = 0; i < nodeList3.length; i++) {
-            (function (j) {
-                nodeList3[j].addEventListener("click", function (e) {
-                    console.log(e.target.innerText)
-                    LSQ1(e.target.innerText)
-                }, false);
-            })(i);
-        }
-        var oTab4 = document.getElementById("tag4");
-        var nodeList4 = oTab4.children;
-        for (var i = 0; i < nodeList4.length; i++) {
-            (function (j) {
-                nodeList4[j].addEventListener("click", function (e) {
-                    console.log(e.target.innerText)
-                    LSQ2(e.target.innerText)
-                }, false);
-            })(i);
-        }
+    var oTab3 = document.getElementById("tag3");
+    var nodeList3 = oTab3.children;
+    for (var i = 0; i < nodeList3.length; i++) {
+        (function (j) {
+            nodeList3[j].addEventListener("click", function (e) {
+                console.log(e.target.innerText)
+                LSQ1(e.target.innerText)
+            }, false);
+        })(i);
+    }
+    var oTab4 = document.getElementById("tag4");
+    var nodeList4 = oTab4.children;
+    for (var i = 0; i < nodeList4.length; i++) {
+        (function (j) {
+            nodeList4[j].addEventListener("click", function (e) {
+                console.log(e.target.innerText)
+                LSQ2(e.target.innerText)
+            }, false);
+        })(i);
+    }
 
-        function ZQF1(lang) {
-            var chart = echarts.init(document.getElementById('ZQF1'), 'white', { renderer: 'canvas' });
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:5000/ZQF1",
-                data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
-                dataType: 'json',
-                success: function (result) {
-                    chart.setOption(result);
-                }
-            });
-        }
+    function ZQF1(lang) {
+        var chart = echarts.init(document.getElementById('ZQF1'), 'white', { renderer: 'canvas' });
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/ZQF1",
+            data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+            dataType: 'json',
+            success: function (result) {
+                chart.setOption(result);
+            }
+        });
+    }
 
-        function ZQF2() {
-            var chart = echarts.init(document.getElementById('ZQF2'), 'white', { renderer: 'canvas' });
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:5000/ZQF2",
-                dataType: 'json',
-                success: function (result) {
-                    chart.setOption(result);
-                }
-            });
-        };
+    function ZQF2() {
+        var chart = echarts.init(document.getElementById('ZQF2'), 'white', { renderer: 'canvas' });
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/ZQF2",
+            dataType: 'json',
+            success: function (result) {
+                chart.setOption(result);
+            }
+        });
+    };
 
-        function ZQF3(city) {
-            var chart = echarts.init(document.getElementById('ZQF3'), 'white', { renderer: 'canvas' });
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:5000/ZQF3",
-                data: "city=" + encodeURIComponent(city),
-                dataType: 'json',
-                success: function (result) {
-                    chart.setOption(result);
-                }
-            });
-        };
+    function ZQF3(city) {
+        var chart = echarts.init(document.getElementById('ZQF3'), 'white', { renderer: 'canvas' });
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/ZQF3",
+            data: "city=" + encodeURIComponent(city),
+            dataType: 'json',
+            success: function (result) {
+                chart.setOption(result);
+            }
+        });
+    };
 
-        function LSQ1(lang) {
-            var chart = echarts.init(document.getElementById('LSQ1'), 'white', { renderer: 'canvas' });
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:5000/LSQ1",
-                data: "lang=" + encodeURIComponent(lang),
-                dataType: 'json',
-                success: function (result) {
-                    chart.setOption(result);
-                }
-            });
-        };
+    function LSQ1(lang) {
+        var chart = echarts.init(document.getElementById('LSQ1'), 'white', { renderer: 'canvas' });
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/LSQ1",
+            data: "lang=" + encodeURIComponent(lang),
+            dataType: 'json',
+            success: function (result) {
+                chart.setOption(result);
+            }
+        });
+    };
 
-        function LSQ2(lang) {
-            var chart = echarts.init(document.getElementById('LSQ2'), 'white', { renderer: 'canvas' });
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:5000/LSQ2",
-                data: "lang=" + encodeURIComponent(lang),
-                dataType: 'json',
-                success: function (result) {
-                    chart.setOption(result);
-                }
-            });
-        };
+    function LSQ2(lang) {
+        var chart = echarts.init(document.getElementById('LSQ2'), 'white', { renderer: 'canvas' });
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/LSQ2",
+            data: "lang=" + encodeURIComponent(lang),
+            dataType: 'json',
+            success: function (result) {
+                chart.setOption(result);
+            }
+        });
+    };
 
-        function load() {
+    function load() {
 
-            ZQF1("C#")    //语言与岗位个数/与工资 
-            ZQF2()    //城市/与各语言/与工资
-            LSQ2("C#")//学历与工资
-            LSQ1("C#")   //工资与经验
-            ZQF3("北京")//行业/区域
+        ZQF1("C#")    //语言与岗位个数/与工资 
+        ZQF2()    //城市/与各语言/与工资
+        LSQ2("C#")//学历与工资
+        LSQ1("C#")   //工资与经验
+        ZQF3("北京")//行业/区域
 
-        }
-    </script>
+    }
+</script>
 </body>
 
 </html>

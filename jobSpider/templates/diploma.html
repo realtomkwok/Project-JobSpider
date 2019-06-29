@@ -4,119 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Report 2</title>
+    <title>学历相关</title>
     <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
     <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
-            font: 12px/1.5 'PT Sans', serif;
-            margin: 25px;
-        }
-
-        .tags {
-            list-style: none;
-            margin: 0;
-            overflow: hidden;
-            padding: 0;
-        }
-
-        .tags li {
-            float: left;
-        }
-
-        .tag {
-            background: #eee;
-            border-radius: 3px 0 0 3px;
-            color: #999;
-            display: inline-block;
-            height: 26px;
-            line-height: 26px;
-            padding: 0 20px 0 23px;
-            position: relative;
-            margin: 0 10px 10px 0;
-            text-decoration: none;
-            -webkit-transition: color 0.2s;
-        }
-
-        .tag::before {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
-            content: '';
-            height: 6px;
-            left: 10px;
-            position: absolute;
-            width: 6px;
-            top: 10px;
-        }
-
-        .tag::after {
-            background: #fff;
-            border-bottom: 13px solid transparent;
-            border-left: 10px solid #eee;
-            border-top: 13px solid transparent;
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-
-        .tag:hover {
-            background-color: crimson;
-            color: white;
-        }
-
-        .tag:hover::after {
-            border-left-color: crimson;
+            color: black;
         }
     </style>
 </head>
-<body>
-    <h1>Report 2</h1>
-    <div class="report">
-        <div style="margin: 5%">
-            <h2> TAGS(单选)(数据加载需要时间)</h2>
-            <ul class="tags">
-                <li><a href="#" class="tag">C#</a></li>
-                <li><a href="#" class="tag">C++</a></li>
-                <li><a href="#" class="tag">HTML+CSS</a></li>
-                <li><a href="#" class="tag">Java</a></li>
-                <li><a href="#" class="tag">JavaScript</a></li>
-                <li><a href="#" class="tag">PHP</a></li>
-                <li><a href="#" class="tag">Python</a></li>
-                <li><a href="#" class="tag">Ruby</a></li>
-                <li><a href="#" class="tag">Swift</a></li>
-                <li><a href="#" class="tag">TypeScript</a></li>
-            </ul>
+<body onload="load()">
+    <nav class="navbar navbar-dark">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top" alt="jobSpider">
+        </a>
+    </nav>
+    <div class="content">
+        <div class="hero">
+            <h1 class="font-type-blue">print<span class="font-black">(</span>'学历相关'<span class="font-black">)</span></h1>
+            <div class="text">
+                <p>薪资作为求职者的一个重要衡量指标，自然是本报告的重点关注。以下是十种不同编程语言所属行业、所需经验、学历，以及所在城市和薪资水平的关系图。</p>
+                <p>轻按标签即可阅读所属标签图表。首次加载速度会较长，请耐心等待。</p>
+                <!-- <p>*本报告所有数据来自上述招聘网站的公开数据，与真实的市场需求有可能存在偏差，结论仅供参考。</p> -->
+            </div>
         </div>
-        <div id="LSQ1" style="width:1000px; height:600px;margin: 5%"></div>
+        <div class="section">
+            <h3>编程语言要求学历与薪资水平关系图</h3>
+            <ul class="tags" id="tag1">
+                <div class="btn_row">
+                    <li><a href="###" class="button">C#</a></li>
+                    <li><a href="###" class="button">C++</a></li>
+                    <li><a href="###" class="button">HTML+CSS</a></li>
+                    <li><a href="###" class="button">Java</a></li>
+                    <li><a href="###" class="button">JavaScript</a></li>
+                </div>
+                <div class="btn_row">
+                    <li><a href="###" class="button">PHP</a></li>
+                    <li><a href="###" class="button">Python</a></li>
+                    <li><a href="###" class="button">Ruby</a></li>
+                    <li><a href="###" class="button">Swift</a></li>
+                    <li><a href="###" class="button">TypeScript</a></li>
+                </div>
+            </ul>
+            <div class="figure">
+                <div id="LSQ1" class="chart"></div>
+                <div class="caption">
+                    <p class="text">hello, world!</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        var nodeList = document.getElementsByTagName('li');
+        for (var i = 0; i < nodeList.length; i++) {
+            (function (j) {
+                nodeList[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                    LSQ1(e.target.innerText)
+                }, false);
+            })(i);
+        }
+        function LSQ1(lang) {
+                var chart = echarts.init(document.getElementById('LSQ1'), 'white', { renderer: 'canvas' });
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:5000/LSQ1",
+                    data: "lang=" + encodeURIComponent(lang),
+                    dataType: 'json',
+                    success: function (result) {
+                        chart.setOption(result);
+                    }
+                });
+        };
+        function load() {
+            LSQ1("C#")
+        }
+    </script>
 </body>
-<script>
-    var nodeList = document.getElementsByTagName('li');
-    for (var i = 0; i < nodeList.length; i++) {
-        (function (j) {
-            nodeList[j].addEventListener("click", function (e) {
-                console.log(e.target.innerText)
-                LSQ1(e.target.innerText)
-            }, false);
-        })(i);
-    }
-    function LSQ1(lang) {
-            var chart = echarts.init(document.getElementById('LSQ1'), 'white', { renderer: 'canvas' });
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:5000/LSQ1",
-                data: "lang=" + encodeURIComponent(lang),
-                dataType: 'json',
-                success: function (result) {
-                    chart.setOption(result);
-                }
-            });
-    };
-    function load() {
-        LSQ1("C#")
-    }
-</script>
 </html>
