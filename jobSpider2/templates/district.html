@@ -1,0 +1,180 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>地域相关</title>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            color: black;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <!--onload事件-->
+    <nav class="navbar navbar-dark">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top"
+                alt="jobSpider">
+        </a>
+        <div class="link_group">
+            <a href="{{ url_for('salary') }}" class="nav_link">薪资</a>
+            <a href="{{ url_for('district') }}" class="nav_link active">地域</a>
+            <a href="{{ url_for('industry') }}" class="nav_link">行业</a>
+            <a href="{{ url_for('skills') }}" class="nav_link">技能</a>
+            <a href="{{ url_for('diploma') }}" class="nav_link">学历</a>
+            <a href="{{ url_for('welfare') }}" class="nav_link">福利</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="hero">
+            <h1 class="font-type-blue">print<span class="font-black">(</span>'地域相关'<span class="font-black">)</span></h1>
+            <div class="text">
+                <p>薪资作为求职者的一个重要衡量指标，自然是本报告的重点关注。以下是十种不同编程语言所属行业、所需经验、学历，以及所在城市和薪资水平的关系图。</p>
+                <p>轻按标签即可阅读所属标签图表。首次加载速度会较长，请耐心等待。</p>
+                <!-- <p>*本报告所有数据来自上述招聘网站的公开数据，与真实的市场需求有可能存在偏差，结论仅供参考。</p> -->
+            </div>
+        </div>
+        <div class="section">
+            <h3> 北上广深、编程语言与和工资关系图(单选)</h3>
+            <div class="figure">
+                <div id="ZQF2" class="chart"></div>
+                <div class="caption">
+                    <ol class="text">
+                        <li>编程语言相关行业平均工资最高的城市是北京；最低的是深圳</li>
+                        <li>各编程语言的平均工资相差最大的城市是北京；相差最小的是深圳</li>
+                        <li>在北上广深平均工资最高的前三甲编程语言是Swift、PHP、C++</li>
+                        <li>在北上广深平均工资最低的前三甲编程语言是C#、JavaScript、HTML</li>
+                    </ol>
+                    <p class="text">深圳的薪资水平比较稳定，北京的薪资波动较大，可能晋升空间比较大</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>北上广深各区技能相关岗位平均工资</h3>
+            <ul class="tags" id="tag2">
+                <li><a href="###" class="button">北京</a></li>
+                <li><a href="###" class="button">上海</a></li>
+                <li><a href="###" class="button">广州</a></li>
+                <li><a href="###" class="button">深圳</a></li>
+            </ul>
+            <div class="figure">
+                <div id="ZQF3" class="chart"></div>
+                <div class="caption">
+                    <ol class="text">
+                        <li>北京编程语言相关行业平均工资最高的区域是头沟区</li>
+                        <li>上海编程语言相关行业平均工资最高的区是静安区</li>
+                        <li>广州编程语言相关行业平均工资最高的区是萝岗区</li>
+                        <li>深圳编程语言相关行业平均工资最高的区是龙华区</li>
+                    </ol>
+                    <p class="text">数据分析得出的编程语言相关行业平均工资的区域与平时认知的龙头区域并不一致；原因可能有二：一、编程语言相关行业大多并不位于龙头区域；二、由于我们的数据来源太狭隘，分析结果与实际有出入</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>编程语言在各地区各行业的分布关系图</h3>
+            <ul class="tags" id="tag3">
+                <div class="btn_row">
+                    <li><a href="###" class="button">C#</a></li>
+                    <li><a href="###" class="button">C++</a></li>
+                    <li><a href="###" class="button">HTML+CSS</a></li>
+                    <li><a href="###" class="button">Java</a></li>
+                    <li><a href="###" class="button">JavaScript</a></li>
+                </div>
+                <div class="btn_row">
+                    <li><a href="###" class="button">PHP</a></li>
+                    <li><a href="###" class="button">Python</a></li>
+                    <li><a href="###" class="button">Ruby</a></li>
+                    <li><a href="###" class="button">Swift</a></li>
+                    <li><a href="###" class="button">TypeScript</a></li>
+                </div>
+            </ul>
+            <div class="figure">
+                <div id="LZX1" class="chart"></div>
+                <div class="caption">
+                    <p class="text">hello, world!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="next_chapter">
+        <a href="{{ url_for('industry') }}">
+            <h3 class="chap_overtext font-white">下一部分</h3>
+            <h2 class="chap_title font-type-blue">print<span class="font-white">(</span>'行业领域'<span class="font-white">)</span></h2>
+        </a>
+    </div>
+
+<script>
+
+    var oTab2 = document.getElementById("tag2");
+    var nodeList2 = oTab2.children;
+    for (var i = 0; i < nodeList2.length; i++) {
+        (function (j) {
+            nodeList2[j].addEventListener("click", function (e) {
+                console.log(e.target.innerText)
+                ZQF3(e.target.innerText)
+            }, false);
+        })(i);
+    }
+
+    var oTab3 = document.getElementById("tag3");
+    var nodeList3 = oTab3.children;
+    for (var i = 0; i < nodeList3.length; i++) {
+        (function (j) {
+            nodeList3[j].addEventListener("click", function (e) {
+                console.log(e.target.innerText)
+                LZX1(e.target.innerText)
+            }, false);
+        })(i);
+    }
+
+    function ZQF2() {
+        var chart = echarts.init(document.getElementById('ZQF2'), 'white', { renderer: 'canvas' });
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/ZQF2",
+            dataType: 'json',
+            success: function (result) {
+                chart.setOption(result);
+            }
+        });
+    };
+
+    function ZQF3(city) {
+        var chart = echarts.init(document.getElementById('ZQF3'), 'white', { renderer: 'canvas' });
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/ZQF3",
+            data: "city=" + encodeURIComponent(city),
+            dataType: 'json',
+            success: function (result) {
+                chart.setOption(result);
+            }
+        });
+    }
+
+    function LZX1(lang) {
+        var chart = echarts.init(document.getElementById('LZX1'), 'white', { renderer: 'canvas' });
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/LZX1",
+            data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+            dataType: 'json',
+            success: function (result) {
+                chart.setOption(result);
+            }
+        });
+    }
+
+    function load() {   
+        ZQF2()    //城市/与各语言/与工资
+        ZQF3("北京")//行业/区域
+        LZX1("C#")//行业和区域
+    }
+</script>
+</body>
+</html>

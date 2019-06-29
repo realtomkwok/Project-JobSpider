@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jobSpider 职业报告</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: #282B35;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-dark">
+        <a class="navbar-brand" href="#">
+            <img src="/img/Logo.svg" width="168" height="35" class="d-inline-block align-top" alt="jobSpider">
+        </a>
+    </nav>
+    <div class="content">
+        <div class="hero">
+                <h1 class="font-type-blue">print<span class="font-white">(</span>reports<span class="font-white">)</span></h1>
+                <div class="text">
+                    <p>欢迎阅读！</p>
+                    <p>JobSpider 编程语言就业报告是针对时下流行的十种编程语言所作的职位分析报告。本报告主要展示了十种编程语言在地区分布、薪资待遇、学历经验的概况、关系，以及编程语言在就业方面的前景分析。您可以通过阅读本报告，对自己的未来的职业进行一个初步的规划，并且了解到自己需要进修的技能，以提高自己的就业竞争力和迎合就业市场的需要。</p>
+                    <p>本报告所有数据来自上述招聘网站的公开数据，与真实的市场需求有可能存在偏差，结论仅供参考。</p>
+                </div>
+                <!-- <div id="buttons">
+                    <a href="#" class="button">
+                        <span class="button_text">向下了解更多</span>
+                    </a>
+                </div> -->
+        </div>
+            <section id="parts" class="section">
+                <h2 class="font-type-blue">print<span class="font-white">(</span>parts<span class="font-white">)</span></h2>
+                <p class="subtitle font-type-blue">报告分类<p>
+                <div class="scrolling-wrapper">
+                    <a class="inline-card card-small" href="{{ url_for('salary') }}">
+                        <img src="/icons/money.svg" width="50" height="50" alt="工资相关" class="icon">
+                        <h3 class="font-orange" style="margin-block-start: 0.2em;">薪资相关</h3>
+                        <p class="text"></p>
+                    </a>
+                    <a class="inline-card card-small" href="{{ url_for('district') }}">
+                        <img src="/icons/place.svg" width="50" height="50" alt="地域相关" class="icon">
+                        <h3 class="font-orange" style="margin-block-start: 0.2em;">地域相关</h3>
+                        <p class="text"></p>
+                    </a>
+                    <a class="inline-card card-small" href="{{ url_for('industry') }}">
+                        <img src="/icons/work.svg" width="50" height="50" alt="行业领域" class="icon">
+                        <h3 class="font-orange" style="margin-block-start: 0.2em;">行业领域</h3>
+                        <p class="text"></p>
+                    </a>
+                    <a class="inline-card card-small" href="{{ url_for('skills') }}">
+                            <img src="/icons/star.svg" width="50" height="50" alt="技能相关" class="icon">
+                            <h3 class="font-orange" style="margin-block-start: 0.2em;">技能相关</h3>
+                            <p class="text"></p>
+                    </a>
+                    <a class="inline-card card-small" href="{{ url_for('diploma') }}">
+                        <img src="/icons/school.svg" width="50" height="50" alt="学历相关" class="icon">
+                        <h3 class="font-orange" style="margin-block-start: 0.2em;">学历相关</h3>
+                        <p class="text"></p>
+                    </a>
+                    <a class="inline-card card-small" href="{{ url_for('welfare') }}">
+                        <img src="/icons/smile.svg" width="50" height="50" alt="福利相关" class="icon">
+                        <h3 class="font-orange" style="margin-block-start: 0.2em;">福利相关</h3>
+                        <p class="text"></p>
+                    </a>
+                </div>
+            </section>
+            <section id="q&a" class="section">
+                <h2 class="font-type-blue">help<span class="font-white">(</span>reports<span class="font-white">)</span></h2>
+                <p class="subtitle font-type-blue">常见问题<p>
+                <div class="scrolling-wrapper ">
+                    <div class="inline-card">
+                        <h3 class="font-orange">报告涉及的是哪十种编程语言？</h3>
+                        <p class="text">十种编程语言的选择主要根据 GitHub 项目最常用的编程语言（以英文首字母排序）：C#, C++, HTML+CSS, Java, JavaScript, PHP, Python, Ruby, Swift, TypeScript.</p>
+                    </div>
+                    <div class="inline-card">
+                            <h3 class="font-orange">爬取了哪些网站？</h3>
+                            <p class="text">猎聘、智联招聘、Boss直聘、拉勾网、前途无忧</p>
+                    </div>
+                    <div class="inline-card">
+                            <h3 class="font-orange">用了什么技术实现？</h3>
+                            <p class="text">本报告主要使用 Python 进行开发，配合 Flask 渲染网页以及 ECharts 展示图表来实现基本的功能。</p>
+                    </div>
+                </div>
+            </section>       
+    </div>
+    <footer>
+        <p>Made by Team 4 </p>   
+    </footer>    
+</body>
+</html>

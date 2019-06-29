@@ -1,0 +1,105 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css"> 
+    <style>
+        body {
+            color: black;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <!--onload事件-->
+    <nav class="navbar navbar-dark">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top"
+                alt="jobSpider">
+        </a>
+        <div class="link_group">
+            <a href="{{ url_for('salary') }}" class="nav_link">薪资</a>
+            <a href="{{ url_for('district') }}" class="nav_link">地域</a>
+            <a href="{{ url_for('industry') }}" class="nav_link">行业</a>
+            <a href="{{ url_for('skills') }}" class="nav_link active">技能</a>
+            <a href="{{ url_for('diploma') }}" class="nav_link">学历</a>
+            <a href="{{ url_for('welfare') }}" class="nav_link">福利</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="hero">
+            <h1 class="font-type-blue">print<span class="font-black">(</span>'技能相关'<span class="font-black">)</span></h1>
+            <div class="text">
+                <p>薪资作为求职者的一个重要衡量指标，自然是本报告的重点关注。以下是十种不同编程语言所属行业、所需经验、学历，以及所在城市和薪资水平的关系图。</p>
+                <p>轻按标签即可阅读所属标签图表。首次加载速度会较长，请耐心等待。</p>
+                <!-- <p>*本报告所有数据来自上述招聘网站的公开数据，与真实的市场需求有可能存在偏差，结论仅供参考。</p> -->
+            </div>
+        </div>
+        <div class="section">
+            <h3>热门编程相关技能</h3>
+            <ul class="tags" id="tag1">
+                <div class="btn_row">
+                    <li><a href="###" class="button">C#</a></li>
+                    <li><a href="###" class="button">C++</a></li>
+                    <li><a href="###" class="button">HTML+CSS</a></li>
+                    <li><a href="###" class="button">Java</a></li>
+                    <li><a href="###" class="button">JavaScript</a></li>
+                </div>
+                <div class="btn_row">
+                    <li><a href="###" class="button">PHP</a></li>
+                    <li><a href="###" class="button">Python</a></li>
+                    <li><a href="###" class="button">Ruby</a></li>
+                    <li><a href="###" class="button">Swift</a></li>
+                    <li><a href="###" class="button">TypeScript</a></li>
+                </div>
+            </ul>
+            <div class="figure">
+                <div id="mjx" class="chart"></div>
+                <div class="caption">
+                    <p class="text">hello, world!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="next_chapter">
+        <a href="{{ url_for('diploma') }}">
+            <h3 class="chap_overtext font-white">下一部分</h3>
+            <h2 class="chap_title font-type-blue">print<span class="font-white">(</span>'学历相关'<span class="font-white">)</span></h2>
+        </a>
+    </div>
+
+    <script>
+        var oTab1 = document.getElementById("tag1");
+        var nodeList1 = oTab1.children;
+        for (var i = 0; i < nodeList1.length; i++) {
+            (function (j) {
+                nodeList1[j].addEventListener("click", function (e) {
+                    console.log(e.target.innerText)
+                    mjx(e.target.innerText)
+                }, false);
+            })(i);
+        }
+        function mjx(lang) {
+            var mjx = echarts.init(document.getElementById('mjx'), 'white', { renderer: 'canvas' });
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/mjxChart",
+                data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+                dataType: 'json',
+                success: function (result) {
+                    mjx.setOption(result);
+                }
+            });
+        }
+
+        function load() {
+            mjx("C#")//相关技能
+        }
+    </script>
+</body>
+
+</html>
