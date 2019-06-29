@@ -416,7 +416,7 @@ def LZX1(lang) -> Bar:
             xaxis_opts=opts.AxisOpts(name="行业",axislabel_opts=opts.LabelOpts(rotate=-8)),
             title_opts=opts.TitleOpts(title=lang),
              toolbox_opts=opts.ToolboxOpts(),
-            datazoom_opts=opts.DataZoomOpts(),
+            datazoom_opts=opts.DataZoomOpts()
     )
     )
     print("*"*50)
@@ -433,8 +433,7 @@ def LZX2_base() :
 
     lzx = (
         WordCloud()
-        .add("", counts, word_size_range=[20, 100])
-        .set_global_opts(title_opts=opts.TitleOpts(title="WordCloud-基本示例"))
+        .add("", counts, word_size_range=[20, 100]
     )
     return lzx
 
