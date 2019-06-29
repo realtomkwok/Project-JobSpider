@@ -274,14 +274,14 @@ def LSQ1(lang) -> Bar:
 
 
 def LSQ2(lang) -> Bar:
-    language = "data/LSQ/"+lang_dip+".xlsx"
-    df = pd.read_excel(language)
-    data = df.groupby(['city', 'experience']).avgWage.mean().round(2).reset_index(name='salary')
+    language = "data/LSQ/"+lang"_dip"+".xlsx"
+    new_data = pd.read_excel(language)
+    #data = df.groupby(['city', 'diploma_requirement']).avgWage.mean().round(2).reset_index(name='salary')
 
-    shanghai = list(data.query("city=='上海'").salary)
-    beijing = list(data.query("city=='北京'").salary)
-    guangzhou = list(data.query("city=='广州'").salary)
-    shenzhen = list(data.query("city=='深圳'").salary)
+    shanghai = list(new_data.query("city=='上海'").salary)
+    beijing = list(new_data.query("city=='北京'").salary)
+    guangzhou = list(new_data.query("city=='广州'").salary)
+    shenzhen = list(new_data.query("city=='深圳'").salary)
 
     bar = (
         Bar()
@@ -290,7 +290,7 @@ def LSQ2(lang) -> Bar:
         .add_yaxis('北京', beijing)
         .add_yaxis('广州', guangzhou)
         .add_yaxis('深圳', shenzhen)
-        .set_global_opts(title_opts={"text": lang, "subtext": "工资与经验关系图"},
+        .set_global_opts(title_opts={"text": lang, "subtext": "工资与学历关系图"},
                           toolbox_opts=opts.ToolboxOpts(),)
     )
     return bar   
