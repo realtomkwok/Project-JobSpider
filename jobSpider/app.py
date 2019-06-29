@@ -434,7 +434,6 @@ def LZX2_base() :
     lzx = (
         WordCloud()
         .add("", counts, word_size_range=[20, 100])
-        .set_global_opts(title_opts=opts.TitleOpts(title="WordCloud-基本示例"))
     )
     return lzx
 
