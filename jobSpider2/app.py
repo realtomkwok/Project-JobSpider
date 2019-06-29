@@ -274,14 +274,14 @@ def LSQ1(lang) -> Bar:
 
 
 def LSQ2(lang) -> Bar:
-    language = "data/ZQF/"+lang+".xlsx"
+    language = "data/LSQ/"+lang+".xlsx"
     df = pd.read_excel(language)
-    data = df.groupby(['city', 'diploma_requirement']).avgWage.mean().round(2).reset_index(name='salary')
+    #data = df.groupby(['city', 'diploma_requirement']).avgWage.mean().round(2).reset_index(name='salary')
 
-    shanghai = list(data.query("city=='上海'").salary)
-    beijing = list(data.query("city=='北京'").salary)
-    guangzhou = list(data.query("city=='广州'").salary)
-    shenzhen = list(data.query("city=='深圳'").salary)
+    shanghai = list(df.query("city=='上海'").salary)
+    beijing = list(df.query("city=='北京'").salary)
+    guangzhou = list(df.query("city=='广州'").salary)
+    shenzhen = list(df.query("city=='深圳'").salary)
 
     bar = (
         Bar()
