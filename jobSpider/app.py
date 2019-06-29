@@ -416,7 +416,7 @@ def LZX1(lang) -> Bar:
             xaxis_opts=opts.AxisOpts(name="行业",axislabel_opts=opts.LabelOpts(rotate=-8)),
             title_opts=opts.TitleOpts(title=lang),
              toolbox_opts=opts.ToolboxOpts(),
-            datazoom_opts=opts.DataZoomOpts(),
+            datazoom_opts=opts.DataZoomOpts()
     )
     )
     print("*"*50)
