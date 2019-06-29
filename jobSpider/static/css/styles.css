@@ -76,6 +76,9 @@ h3 {
     margin-top: 2rem;
     line-height: 1.7em;
 }
+.caption .text {
+    width: 60%;
+}
 .button_text {
     font-weight: 600;
     font-size: 1.2rem;
@@ -96,7 +99,7 @@ h3 {
 
 .button {
     display: inline-block;
-    /* transition: 308ms background cubic-bezier(0.4, 0, 0.6, 1),300ms color cubic-bezier(0.4, 0, 0.6, 1); */
+    transition: 150ms background-color ease-in-out, 150ms color ease-in-out;
     border: 2px solid black;
     border-radius: 30px;
     background-color: transparent;
@@ -142,6 +145,18 @@ h3 {
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
+}
+.navbar .link_group {
+    float: right;
+    margin-right: 2em;
+}
+.nav_link{
+    color: black !important;
+    font-weight: 600;
+    padding: 0.5em;
+}
+.active {
+    color: #1BABA5 !important;
 }
 
 a:-webkit-any-link {
@@ -226,6 +241,5 @@ footer {
     height: 600px
 }
 .caption {
-    margin: 1em 0 0 1.5em;
     width: 100%;
 }

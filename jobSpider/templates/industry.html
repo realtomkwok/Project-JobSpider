@@ -17,8 +17,17 @@
     <!--onload事件-->
     <nav class="navbar navbar-dark">
         <a class="navbar-brand" href="{{ url_for('index') }}">
-            <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top" alt="jobSpider">
+            <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top"
+                alt="jobSpider">
         </a>
+        <div class="link_group">
+            <a href="{{ url_for('salary') }}" class="nav_link">薪资</a>
+            <a href="{{ url_for('district') }}" class="nav_link">地域</a>
+            <a href="{{ url_for('industry') }}" class="nav_link active">行业</a>
+            <a href="{{ url_for('skills') }}" class="nav_link">技能</a>
+            <a href="{{ url_for('diploma') }}" class="nav_link">学历</a>
+            <a href="{{ url_for('welfare') }}" class="nav_link">福利</a>
+        </div>
     </nav>
     <div class="content">
         <div class="hero">
@@ -80,31 +89,6 @@
                 </div>
             </div>
         </div>
-        <div class="section">
-            <h3>编程语言热门应用领域TOP10关系图</h3>
-            <ul class="tags" id="tag6">
-                <div class="btn_row">
-                    <li><a href="###" class="button">C#</a></li>
-                    <li><a href="###" class="button">C++</a></li>
-                    <li><a href="###" class="button">HTML+CSS</a></li>
-                    <li><a href="###" class="button">Java</a></li>
-                    <li><a href="###" class="button">JavaScript</a></li>
-                </div>
-                <div class="btn_row">
-                    <li><a href="###" class="button">PHP</a></li>
-                    <li><a href="###" class="button">Python</a></li>
-                    <li><a href="###" class="button">Ruby</a></li>
-                    <li><a href="###" class="button">Swift</a></li>
-                    <li><a href="###" class="button">TypeScript</a></li>
-                </div>
-            </ul>
-            <div class="figure">
-                <div id="wordcloud" class="chart"></div>
-                <div class="caption">
-                    <p class="text">hello, world!</p>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="next_chapter">
         <a href="{{ url_for('skills') }}">
@@ -135,16 +119,16 @@
             })(i);
         }
 
-        var oTab6 = document.getElementById("tag6");
-        var nodeList6 = oTab6.children;
-        for (var i = 0; i < nodeList6.length; i++) {
-            (function (j) {
-                nodeList6[j].addEventListener("click", function (e) {
-                    console.log(e.target.innerText)
-                    wordcloud(e.target.innerText)
-                }, false);
-            })(i);
-        }
+        // var oTab6 = document.getElementById("tag6");
+        // var nodeList6 = oTab6.children;
+        // for (var i = 0; i < nodeList6.length; i++) {
+        //     (function (j) {
+        //         nodeList6[j].addEventListener("click", function (e) {
+        //             console.log(e.target.innerText)
+        //             wordcloud(e.target.innerText)
+        //         }, false);
+        //     })(i);
+        // }
 
         function funnel(lang) {
             var funnel = echarts.init(document.getElementById('funnel'), 'white', { renderer: 'canvas' });
@@ -159,18 +143,18 @@
             });
         };
 
-        function wordcloud(lang) {
-            var wordcloud = echarts.init(document.getElementById('wordcloud'), 'white', { renderer: 'canvas' });
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:5000/wordcloudChart",
-                data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
-                dataType: 'json',
-                success: function (result) {
-                    wordcloud.setOption(result);
-                }
-            });
-        }
+        // function wordcloud(lang) {
+        //     var wordcloud = echarts.init(document.getElementById('wordcloud'), 'white', { renderer: 'canvas' });
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "http://127.0.0.1:5000/wordcloudChart",
+        //         data: "lang=" + encodeURIComponent(lang),       //参数中有特殊字符的要用encodeURIComponent
+        //         dataType: 'json',
+        //         success: function (result) {
+        //             wordcloud.setOption(result);
+        //         }
+        //     });
+        // }
 
         function LZX1(lang) {
             var chart = echarts.init(document.getElementById('LZX1'), 'white', { renderer: 'canvas' });
@@ -187,7 +171,6 @@
 
         function load() {
             funnel("C#")//岗位热门词
-            wordcloud("C#")//热门应用热门词
             LZX1("C#")//行业和区域
         }
     </script>

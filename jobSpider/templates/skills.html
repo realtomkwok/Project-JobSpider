@@ -17,8 +17,17 @@
     <!--onload事件-->
     <nav class="navbar navbar-dark">
         <a class="navbar-brand" href="{{ url_for('index') }}">
-            <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top" alt="jobSpider">
+            <img src="/img/Logo_black.svg" width="168" height="35" class="d-inline-block align-top"
+                alt="jobSpider">
         </a>
+        <div class="link_group">
+            <a href="{{ url_for('salary') }}" class="nav_link">薪资</a>
+            <a href="{{ url_for('district') }}" class="nav_link">地域</a>
+            <a href="{{ url_for('industry') }}" class="nav_link">行业</a>
+            <a href="{{ url_for('skills') }}" class="nav_link active">技能</a>
+            <a href="{{ url_for('diploma') }}" class="nav_link">学历</a>
+            <a href="{{ url_for('welfare') }}" class="nav_link">福利</a>
+        </div>
     </nav>
 
     <div class="content">

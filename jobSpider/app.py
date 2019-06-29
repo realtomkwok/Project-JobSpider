@@ -447,6 +447,10 @@ def skills():
 def diploma():
     return render_template("diploma.html")
 
+@app.route("/welfare")
+def welfare():
+    return render_template("welfare.html")
+
 @app.route("/ZQF1",methods=[ 'POST'])
 def get_ZQF1():
     if request.method == "POST":
