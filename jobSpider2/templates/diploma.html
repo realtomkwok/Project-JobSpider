@@ -57,7 +57,7 @@
                 </div>
             </ul>
             <div class="figure">
-                <div id="LSQ1" class="chart"></div>
+                <div id="LSQ2" class="chart"></div>
                 <div class="caption">
                     <p class="text">一般情况下，学历越高，平均工资越高。在北上广深四个城市中，不同城市对不同计算机语言的需要不一，尽管在同一语言、同一学历下，个别城市平均工资差别较大，但学历在本科以上的平均工资都在10K以上（个别除外）。此外，近年来专科院校计算机人才也备受青睐，个别语言专科的平均工资甚至与本科的持平。</p>
                 </div>
@@ -78,15 +78,15 @@
             (function (j) {
                 nodeList[j].addEventListener("click", function (e) {
                     console.log(e.target.innerText)
-                    LSQ1(e.target.innerText)
+                    LSQ2(e.target.innerText)
                 }, false);
             })(i);
         }
-        function LSQ1(lang) {
-                var chart = echarts.init(document.getElementById('LSQ1'), 'white', { renderer: 'canvas' });
+        function LSQ2(lang) {
+                var chart = echarts.init(document.getElementById('LSQ2'), 'white', { renderer: 'canvas' });
                 $.ajax({
                     type: "POST",
-                    url: "http://127.0.0.1:5000/LSQ1",
+                    url: "http://127.0.0.1:5000/LSQ2",
                     data: "lang=" + encodeURIComponent(lang),
                     dataType: 'json',
                     success: function (result) {
@@ -95,7 +95,7 @@
                 });
         };
         function load() {
-            LSQ1("C#")
+            LSQ2("C#")
         }
     </script>
 </body>
